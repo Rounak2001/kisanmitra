@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm Map Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Leaflet CSS for map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-items">
+                <div class="sidebar-item">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-comment-dots"></i>
+                    <span>Chatbot</span>
+                </div>
+                <div class="sidebar-item active">
+                    <i class="fas fa-search"></i>
+                    <span>Search</span>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-user-friends"></i>
+                    <span>Farmer</span>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-seedling"></i>
+                    <span>Crops</span>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-tasks"></i>
+                    <span>Tasks</span>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>Whatsapp</span>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-phone"></i>
+                    <span>IVR Calls</span>
+                </div>
+            </div>
+            <div class="sidebar-footer">
+                <div class="sidebar-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Navigation -->
+            <div class="top-nav">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h3 class="page-title">Map</h3>
+                    <div class="user-profile">
+                        <span class="user-name">Gourav</span>
+                        <span class="user-role">User</span>
+                        <img src="https://via.placeholder.com/40" alt="User Profile" class="rounded-circle">
+                        <i class="fas fa-chevron-down ms-2"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="content-area">
+                <div class="row">
+                    <!-- Filter Column -->
+                    <div class="col-lg-3">
+                        <div class="filter-card">
+                            <div class="filter-header d-flex justify-content-between align-items-center">
+                                <h5>Filter</h5>
+                                <button class="btn-close"></button>
+                            </div>
+                            <div class="filter-body">
+                                <div class="filter-section">
+                                    <h6 class="mb-2">Farmers</h6>
+                                    <div class="custom-checkbox">
+                                        <input type="checkbox" id="farmers" checked>
+                                        <label for="farmers" class="filter-option active">Farmers</label>
+                                    </div>
+                                </div>
+                                <div class="filter-tabs">
+                                    <div class="filter-tab active" data-tab="region">Region</div>
+                                    <div class="filter-tab" data-tab="crops">Crops</div>
+                                    <div class="filter-tab" data-tab="sowing">Sowing Date</div>
+                                </div>
+                                
+                                <!-- Region Filter (active by default) -->
+                                <div class="filter-content" id="region-content" style="display: block;">
+                                    <div class="alert alert-info filter-info">
+                                        <i class="fas fa-info-circle me-2"></i>
+                                        Select location filters below
+                                    </div>
+                                </div>
+                                
+                                <!-- Crops Filter (hidden by default) -->
+                                <div class="filter-content" id="crops-content" style="display: none;">
+                                    <div class="crop-filter-options">
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="wheat">
+                                            <label class="form-check-label" for="wheat">Wheat</label>
+                                        </div>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="paddy">
+                                            <label class="form-check-label" for="paddy">Paddy</label>
+                                        </div>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="gram">
+                                            <label class="form-check-label" for="gram">Gram</label>
+                                        </div>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="banana">
+                                            <label class="form-check-label" for="banana">Banana</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Sowing Date Filter (hidden by default) -->
+                                <div class="filter-content" id="sowing-content" style="display: none;">
+                                    <div class="mb-3">
+                                        <label class="form-label">From Date</label>
+                                        <input type="date" class="form-control" id="fromDate">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">To Date</label>
+                                        <input type="date" class="form-control" id="toDate">
+                                    </div>
+                                </div>
+
+                                <div class="filter-inputs">
+                                    <div class="mb-3">
+                                        <label class="form-label">Country</label>
+                                        <select class="form-select">
+                                            <option selected>Select</option>
+                                            <option>India</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label">State</label>
+                                        <select class="form-select">
+                                            <option selected>Select</option>
+                                            <option>Maharashtra</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label">District</label>
+                                        <select class="form-select">
+                                            <option selected>Select</option>
+                                            <option>Jalgaon</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label">Taluka</label>
+                                        <select class="form-select">
+                                            <option selected>Select</option>
+                                            <option>Raver</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label">Village</label>
+                                        <select class="form-select">
+                                            <option selected>Select</option>
+                                            <option>Rasalpur</option>
+                                            <option>Bhatkhed</option>
+                                            <option>Pal</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="filter-actions mt-4">
+                                    <button class="btn btn-outline-secondary me-2">Clear all</button>
+                                    <button class="btn btn-success">Apply</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Summary Card -->
+                        <div class="summary-card mt-4">
+                            <h5 class="mb-3">Summary</h5>
+                            
+                            <div class="summary-data">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <p class="summary-title">Farmers</p>
+                                        <p class="summary-value">1,965</p>
+                                    </div>
+                                    <div class="col-4">
+                                        <p class="summary-title">Acres</p>
+                                        <p class="summary-value">2,452</p>
+                                    </div>
+                                    <div class="col-4">
+                                        <p class="summary-title">Villages</p>
+                                        <p class="summary-value">78</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="crops-chart mt-4">
+                                <div class="d-flex justify-content-center">
+                                    <div class="position-relative">
+                                        <canvas id="cropsChart" width="200" height="200"></canvas>
+                                        <div class="chart-center-text">
+                                            <span>Crops Grown</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="crop-legend mt-3">
+                                    <div class="crop-item">
+                                        <div class="d-flex align-items-center">
+                                            <span class="crop-dot wheat"></span>
+                                            <span class="crop-name">Wheat</span>
+                                        </div>
+                                        <div class="crop-stats">85 Farmers (4.2 Acre)</div>
+                                    </div>
+                                    <div class="crop-item">
+                                        <div class="d-flex align-items-center">
+                                            <span class="crop-dot paddy"></span>
+                                            <span class="crop-name">Paddy</span>
+                                        </div>
+                                        <div class="crop-stats">85 Farmers (4.2 Acre)</div>
+                                    </div>
+                                    <div class="crop-item">
+                                        <div class="d-flex align-items-center">
+                                            <span class="crop-dot gram"></span>
+                                            <span class="crop-name">Gram</span>
+                                        </div>
+                                        <div class="crop-stats">85 Farmers (4.2 Acre)</div>
+                                    </div>
+                                    <div class="crop-item">
+                                        <div class="d-flex align-items-center">
+                                            <span class="crop-dot banana"></span>
+                                            <span class="crop-name">Banana</span>
+                                        </div>
+                                        <div class="crop-stats">85 Farmers (4.2 Acre)</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="action-buttons mt-4">
+                                <button class="btn btn-outline-secondary me-2">
+                                    <i class="fas fa-plus me-2"></i>
+                                    Create Whatsapp Campaign
+                                </button>
+                                <button class="btn btn-success">Export</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Map Column -->
+                    <div class="col-lg-9">
+                        <div class="row">
+                            <!-- Map Section -->
+                            <div class="col-12">
+                                <div class="map-container" id="map">
+                                    <!-- Map will be rendered here via JS -->
+                                </div>
+                                <!-- Map Layer Controls -->
+                                <div class="map-layers-control">
+                                    <div class="layers-title">Map Layers</div>
+                                    <div class="layers-options">
+                                        <button class="layer-btn active" data-layer="standard">Standard</button>
+                                        <button class="layer-btn" data-layer="satellite">Satellite</button>
+                                        <button class="layer-btn" data-layer="hybrid">Hybrid</button>
+                                        <button class="layer-btn" data-layer="terrain">Terrain</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Export and Create Whatsapp Campaign Buttons -->
+                            <div class="col-12 mt-3 mb-3">
+                                <div class="d-flex justify-content-end">
+                                    <button class="btn btn-outline-success me-2" id="createWhatsappBtn">
+                                        <i class="fab fa-whatsapp me-2"></i>Create Whatsapp Campaign
+                                    </button>
+                                    <button class="btn btn-success" id="exportBtn">
+                                        <i class="fas fa-file-export me-2"></i>Export
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- AI Agronomist Section -->
+                            <div class="col-12 mt-4">
+                                <div class="ai-agronomist-card">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <h5>AI Agronomist</h5>
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </div>
+                                    <div class="ai-chat-container">
+                                        <div class="ai-chat-message">
+                                            <p>What do you want to know?</p>
+                                            <div class="ai-quick-actions">
+                                                <button class="btn btn-sm btn-outline-secondary">Summarise Call Transcripts</button>
+                                                <button class="btn btn-sm btn-outline-secondary">Purchase History</button>
+                                                <button class="btn btn-sm btn-outline-secondary">Insights</button>
+                                                <button class="btn btn-sm btn-outline-secondary">Crop Calendar</button>
+                                                <button class="btn btn-sm btn-outline-secondary">Banana Prices</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="ai-input-box mt-3">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="Ask Anything...">
+                                            <button class="btn btn-outline-secondary" type="button">
+                                                <i class="fas fa-globe"></i>
+                                            </button>
+                                            <button class="btn btn-outline-secondary" type="button">
+                                                <i class="fas fa-paperclip"></i>
+                                            </button>
+                                            <button class="btn btn-success" type="button">
+                                                <i class="fas fa-paper-plane"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Farmers Table -->
+                            <div class="col-12 mt-4">
+                                <div class="farmers-table-container">
+                                    <table class="table">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>Farmer ID</th>
+                                                <th>Name</th>
+                                                <th>District</th>
+                                                <th>Taluka</th>
+                                                <th>Village name</th>
+                                                <th>Crop Name</th>
+                                                <th>Plantation date</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>19479</td>
+                                                <td>Sharadchandra Devidas Wani</td>
+                                                <td>Jalgaon</td>
+                                                <td>Raver</td>
+                                                <td>Rasalpur</td>
+                                                <td>Banana - G9 Tissue<br>Banana - G9 Tissue</td>
+                                                <td>July 1, 2023<br>July 1, 2023</td>
+                                            </tr>
+                                            <tr>
+                                                <td>19950</td>
+                                                <td>Shubham Yashvant Mahajan</td>
+                                                <td>Jalgaon</td>
+                                                <td>Raver</td>
+                                                <td>Bhatkhed</td>
+                                                <td>Banana - G9 Tissue<br>Banana - G9 Tissue</td>
+                                                <td>May 31, 2023<br>May 31, 2023</td>
+                                            </tr>
+                                            <tr>
+                                                <td>19950</td>
+                                                <td>Farmer ID</td>
+                                                <td>Jalgaon</td>
+                                                <td>Raver</td>
+                                                <td>Pal</td>
+                                                <td>Banana - G9 Tissue</td>
+                                                <td>None</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <div class="table-footer d-flex justify-content-between align-items-center mt-3">
+                                        <div class="table-info">
+                                            <span>Rows per page:</span>
+                                            <select class="form-select form-select-sm d-inline-block w-auto ms-2">
+                                                <option>10</option>
+                                                <option>25</option>
+                                                <option>50</option>
+                                            </select>
+                                        </div>
+                                        <div class="pagination-info">
+                                            <span>1-5 of 13</span>
+                                            <button class="btn btn-sm btn-link"><i class="fas fa-chevron-left"></i></button>
+                                            <button class="btn btn-sm btn-link"><i class="fas fa-chevron-right"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Leaflet JS for map -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>

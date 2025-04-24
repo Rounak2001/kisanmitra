@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer Profile - Agricultural Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="farmer_profile.css">
+
+    <!-- Include Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+    <!-- Include Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation - Kept the same as previous pages -->
+        <aside class="sidebar">
+            <div class="sidebar-items">
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <div class="sidebar-item active">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </div>
+                </a>
+                <a href="chat_bot.html" style="text-decoration: none; color: inherit;">
+                    <div class="sidebar-item">
+                        <i class="fas fa-comment-dots"></i>
+                        <span>Chatbot</span>
+                    </div>
+                </a>
+                <a href="ohds.html" style="text-decoration: none; color: inherit;">
+                    <div class="sidebar-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Map</span>
+                    </div>
+                </a>
+                <a href="profile.html" style="text-decoration: none; color: inherit;">
+                    <div class="sidebar-item">
+                        <i class="fas fa-user-friends"></i>
+                        <span>Farmer</span>
+                    </div>
+                </a>
+                <a href="chat.html"  style="text-decoration: none; color: inherit;">
+                    <div class="sidebar-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Whatsapp</span>
+                    </div>
+                </a>
+                <a href="crops.html" style="text-decoration: none; color: inherit;">
+                    <div class="sidebar-item">
+                        <i class="fas fa-seedling"></i>
+                        <span>Crops</span>
+                    </div>
+                </a>
+                <a href="tasks.html" style="text-decoration: none; color: inherit;">
+                    <div class="sidebar-item">
+                        <i class="fas fa-tasks"></i>
+                        <span>Tasks</span>
+                    </div>
+                </a>
+
+                <a href="ivr.html" style="text-decoration: none; color: inherit;">
+                    <div class="sidebar-item">
+                        <i class="fas fa-phone"></i>
+                        <span>IVR Calls</span>
+                    </div>
+                </a>
+            </div>
+            <div class="sidebar-footer">
+                <a href="settings.html" style="text-decoration: none; color: inherit;">
+                    <div class="sidebar-item">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </div>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header bg-white shadow-sm">
+                <div class="container-fluid py-3">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <h1 class="fs-4 fw-semibold text-success mb-0">Farmer Profile - 27170</h1>
+                        </div>
+                        <div class="col-auto">
+                            <div class="d-flex align-items-center">
+                                <div class="me-4">
+                                    <i class="fas fa-bell fs-5 text-muted"></i>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <img src="/api/placeholder/40/40" alt="User Profile" class="rounded-circle me-2" width="40" height="40">
+                                    <div class="d-flex flex-column me-2">
+                                        <span class="fw-semibold small">Gourav</span>
+                                        <span class="text-muted small">User</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down text-muted small"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Profile Content -->
+            <div class="container-fluid p-4">
+                <div class="row">
+                    <!-- Left Column -->
+                    <!-- Farm Details Section -->
+                    <div class="col-md-3">
+                        <!-- Farm Details Card -->
+                        <div class="card mb-3 farm-details-card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h5 class="card-title text-success mb-0">Farm Details</h5>
+                                    <button class="btn btn-sm text-muted p-0 border-0">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </div>
+                                <hr class="my-2">
+                                
+                                <div class="mb-4">
+                                    <h2 class="fw-bold mb-0">2.1 Acres</h2>
+                                    <p class="text-muted small mb-2">Land Owner</p>
+                                    
+                                    <!-- Acre Distribution Bar -->
+                                    <div class="acre-distribution-bar mb-2">
+                                        <div class="acre-bar banana-bar">1.4 Acre</div>
+                                        <div class="acre-bar cotton-bar">0.7 Acre</div>
+                                    </div>
+                                    
+                                    <div class="d-flex small justify-content-between mb-3">
+                                        <div>Banana: 1,950 saplings</div>
+                                        <div>Cotton: 3,200 plants</div>
+                                    </div>
+                                    
+                                    <!-- Location -->
+                                    <div class="d-flex align-items-center mb-3">
+                                        <i class="fas fa-map-marker-alt text-dark me-2"></i>
+                                        <span>Ambegaon, Ardhapur, Nanded</span>
+                                    </div>
+                                </div>
+                                <!-- Farm Map with Leaflet integration -->
+                                <div class="farm-map-container mb-4">
+                                    <div id="farm-map" style="height: 200px; width: 100%; border-radius: 8px;"></div>
+                                </div>
+                                
+                                <!-- Weather Section -->
+                                <div class="weather-container mb-3">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <div>
+                                            <span class="text-muted me-2">Today</span>
+                                            <span>11 April</span>
+                                        </div>
+                                        <div class="weather-icon">
+                                            <i class="fas fa-cloud-rain"></i>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <div class="fw-bold">Rain Alert</div>
+                                        <div class="text-warning d-flex align-items-center">
+                                            <span>Yellow Sigatoka Risk</span>
+                                            <img src="https://kisanvedika.bighaat.com/wp-content/uploads/2023/03/Banana_Sigatoka_Leaf-41.jpg" alt="Risk Icon" class="ms-2 rounded-circle" width="20" height="20">
+                                        </div>
+                                    </div>
+                                    
+                                    <hr class="my-3">
+                                    
+                                    <div class="d-flex">
+                                        <div class="weather-forecast flex-1 pe-2 border-end">
+                                            <div class="text-muted mb-1">12 April</div>
+                                            <div class="d-flex align-items-center mb-1">
+                                                <div class="fw-medium me-2">Rain Alert</div>
+                                                <i class="fas fa-cloud-rain"></i>
+                                            </div>
+                                            <div class="text-muted small">Fungal Risk</div>
+                                        </div>
+                                        <div class="weather-forecast flex-1 ps-2">
+                                            <div class="text-muted mb-1">13 April</div>
+                                            <div class="d-flex align-items-center mb-1">
+                                                <div class="fw-medium me-2">Sunny</div>
+                                                <i class="fas fa-circle text-warning"></i>
+                                            </div>
+                                            <div class="text-muted small">Low Risk</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Sentiment Analysis Card -->
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h5 class="card-title text-success mb-0">Sentiment Analysis</h5>
+                                    <div class="sentiment-icon">
+                                        <i class="fas fa-leaf text-success"></i>
+                                    </div>
+                                </div>
+                                <hr class="my-2">
+                                <!-- Confidence Bar -->
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span>Confidence</span>
+                                        <span>72%</span>
+                                    </div>
+                                    <div class="progress-container">
+                                        <div class="progress-bar confidence-bar" style="width: 72%"></div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Stress Bar -->
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span>Stress</span>
+                                        <span>38%</span>
+                                    </div>
+                                    <div class="progress-container">
+                                        <div class="progress-bar stress-bar" style="width: 38%"></div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Adoption Readiness Bar -->
+                                <div class="mb-4">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span>Adoption Readiness</span>
+                                        <span>81%</span>
+                                    </div>
+                                    <div class="progress-container">
+                                        <div class="progress-bar adoption-bar" style="width: 81%"></div>
+                                    </div>
+                                </div>
+                                <hr class="my-3">
+                                <!-- Word Cloud -->
+                                <div class="word-cloud-container">
+                                    <div class="tag-cloud">
+                                        <span class="tag-desk-cows">Desk Cows</span>
+                                        <span class="tag-cash-flow">Cash Flow</span>
+                                        <span class="tag-bunchy-top">Bunchy Top</span>
+                                        <span class="tag-rise-n-shine">Rise n Shine</span>
+                                        <span class="tag-wsf">WSF</span>
+                                        <span class="tag-bunch">Bunch</span>
+                                        <span class="tag-mahadhan">Mahadhan</span>
+                                        <span class="tag-banana-g9">Banana G9</span>
+                                        <span class="tag-jai-shri-raam">Jai Shri Raam</span>
+                                        <span class="tag-bjp">BJP</span>
+                                        <span class="tag-drip-irrigation">Drip irrigation</span>
+                                        <span class="tag-no-labour">No Labour</span>
+                                        <span class="tag-credit">Credit</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Center Column -->
+                    <div class="col-md-5">
+                        <!-- Farmer Details Section -->
+                        <div class="container py-1">
+                            <div class="card border-0 shadow-sm mb-4">
+                                <div class="card-body p-4">
+                                    <!-- Farmer Name and Contact Buttons -->
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <h3 class="farmer-name mb-0">Tushar Jayram Kadlag</h3>
+                                        <div class="d-flex gap-3">
+                                            <button class="contact-btn">
+                                                <i class="fas fa-phone text-success"></i>
+                                            </button>
+                                            <button class="contact-btn">
+                                                <i class="fab fa-whatsapp text-success"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="d-flex mb-4 ">
+                                        <div class="me-4 d-flex align-items-center">
+                                            <i class="fas fa-male me-2 text-muted"></i>
+                                            <span>53 Years</span>
+                                        </div>
+                                        <div class="d-flex align-items-center">
+                                            <i class="fas fa-users me-2 text-muted"></i>
+                                            <span>Sailu FPC</span>
+                                        </div>
+                                    </div>
+                         
+
+                                    <!-- Analytics Cards -->
+                                    <div class="row g-3 mb-3">
+                                        <!-- Calls Card -->
+                                        <div class="col-md-4">
+                                            <div class="stat-card d-flex flex-column justify-content-between">
+                                                <div>
+                                                    <div class="d-flex align-items-center mb-2">
+                                                        <div class="stat-icon">
+                                                            <i class="fas fa-phone text-success"></i>
+                                                        </div>
+                                                        <span class="stat-label fw-medium">Calls Answered</span>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex justify-content-between align-items">
+                                                    <h5 class="stat-value mb-0">58%</h5>
+                                                    <!-- <div class="text-end">
+                                                        <div>17 mins</div>
+                                                        <div>call time</div>
+                                                    </div> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- WhatsApp Card -->
+                                        <div class="col-md-4">
+                                            <div class="stat-card d-flex flex-column justify-content-between">
+                                                <div>
+                                                    <div class="d-flex align-items-center mb-2">
+                                                        <div class="stat-icon">
+                                                            <i class="fab fa-whatsapp text-success"></i>
+                                                        </div>
+                                                        <span class="stat-label fw-medium">WhatsApp Response</span>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex justify-content-between align-items">
+                                                    <h5 class="stat-value mb-0">82%</h5>
+                                                    <!-- <div class="text-end small">
+                                                        <div>22 messages</div>
+                                                        <div>replied</div>
+                                                    </div> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Order Card -->
+                                        <div class="col-md-4">
+                                            <div class="stat-card d-flex flex-column justify-content-between">
+                                                <div>
+                                                    <div class="d-flex align-items-center mb-2">
+                                                        <div class="stat-icon">
+                                                            <i class="fas fa-shopping-bag text-success"></i>
+                                                        </div>
+                                                        <span class="stat-label fw-medium">Order History</span>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex justify-content-between align-items-start">
+                                                    <h5 class="stat-value mb-0">₹7.6k</h5>
+                                                    <!-- <div class="text-start small">
+                                                        <div>5 items</div>
+                                                        <div>purchased</div>
+                                                    </div> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="timeline-container">
+                                    <div class="timeline-line"></div>
+                                    
+                                    <!-- IVR Section (Right) -->
+                                    <div class="timeline-item right">
+                                        <div class="timeline-dot"></div>
+                                        <div class="timeline-card">
+                                        <div class="card-header">
+                                            <span class="timeline-label">IVR</span>
+                                        </div>
+                                        <h2 class="timeline-title">Inbound Call</h2>
+                                        <div class="timeline-date">10:40 AM, 2 April, 2025</div>
+                                        
+                                        <div class="timeline-footer">
+                                            <div class="timeline-meta">
+                                            <i class="fas fa-arrow-right text-success me-2"></i>
+                                            <span>03:12 duration</span>
+                                            </div>
+
+                                        </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- WhatsApp Section (Left) -->
+                                    <div class="timeline-item left">
+                                        <div class="timeline-dot"></div>
+                                        <div class="timeline-card">
+                                        <div class="card-header">
+                                            <span class="timeline-label">WhatsApp</span>
+                                        </div>
+                                        <h2 class="timeline-title">Yellow Sigatoka Warning</h2>
+                                        <div class="timeline-date">8:24 AM, 28 March 2025</div>
+                                        
+                                        <div class="timeline-footer">
+                                            <div class="timeline-meta">
+                                            <i class="fas fa-arrow-right text-success me-2"></i>
+                                            <span>Conversation Initiated</span>
+                                            </div>
+                                            <div class="action-buttons">
+                                            <button class="action-btn"><i class="fas fa-volume-up"></i></button>
+                                            <button class="action-btn"><i class="fas fa-eye"></i></button>
+                                            <button class="action-btn"><i class="fas fa-edit"></i></button>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- ONDC Section (Right) -->
+                                    <div class="timeline-item right">
+                                        <div class="timeline-dot"></div>
+                                            <div class="timeline-card">
+                                                <div class="card-header">
+                                                    <span class="timeline-label">ONDC</span>
+                                                    <div class="status-badge">Delivered</div>
+                                                </div>
+                                                <h2 class="timeline-title">Order Purchased : Roko</h2>
+                                                <div class="timeline-date">8:24 AM, 28 March 2025</div>
+                                                
+                                                <div class="timeline-footer">
+                                                    <div class="timeline-meta">
+                                                    <i class="fas fa-arrow-right text-success me-2"></i>
+                                                    <span>Conversation Initiated</span>
+                                                    </div>
+                                                    <div class="action-buttons">
+                                                    <button class="action-btn"><i class="fas fa-volume-up"></i></button>
+                                                    <button class="action-btn"><i class="fas fa-eye"></i></button>
+                                                    <button class="action-btn"><i class="fas fa-edit"></i></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ai-agronomist-container">
+                        <div class="ai-header">
+                            <h5 class="ai-title">AI Agronomist</h5>
+                            <button class="more-options-btn">
+                            <i class="fas fa-ellipsis-h"></i>
+                            </button>
+                        </div>
+
+                        <div class="ai-content">
+                            <h6 class="question-text">What do you want to know about Tushar?</h6>
+                            
+                            <div class="button-row">
+                            <button class="option-btn">Summarise Call Transcripts</button>
+                            <button class="option-btn">Purchase History</button>
+                            </div>
+                            
+                            <div class="button-row">
+                            <button class="option-btn">Crop Calendar</button>
+                            <button class="option-btn">Banana Prices</button>
+                            </div>
+                            
+                            <div class="button-row">
+                            <button class="option-btn">Who is Maha FPC</button>
+                            <button class="option-btn">Analyse Farmer Journey</button>
+                            </div>
+                            
+                            <div class="button-row">
+                            <button class="option-btn">Local Insights</button>
+                            </div>
+                        </div>
+                        
+                        <div class="chat-input-container">
+                            <input type="text" class="chat-input" placeholder="Ask Anything...">
+                            <div class="input-buttons">
+                            <button class="input-btn">
+                                <i class="fas fa-globe"></i>
+                            </button>
+                            <button class="input-btn">
+                                <i class="fas fa-paperclip"></i>
+                            </button>
+                            <button class="send-btn">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Column -->
+                    <div class="col-md-4">
+                        <div class="banana-calendar-container">
+                        <!-- Header with navigation -->
+                        <div class="calendar-header">
+                            <div class="d-flex justify-content-between align-items-center p-3 border-bottom">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-chevron-left text-muted me-2"></i>
+                                <span class="fw-medium">Banana Calendar</span>
+                                <i class="fas fa-chevron-right text-muted ms-2"></i>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <span class="me-1">April</span>
+                                <i class="fas fa-chevron-down text-muted small"></i>
+                            </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Calendar days -->
+                        <div class="calendar-days p-2">
+                            <div class="row text-center g-0">
+                            <div class="col small text-muted">Mon</div>
+                            <div class="col small text-muted">Tue</div>
+                            <div class="col small text-muted">Wed</div>
+                            <div class="col small text-muted">Thu</div>
+                            <div class="col small text-muted">Fri</div>
+                            <div class="col small text-muted">Sat</div>
+                            <div class="col small text-muted">Sun</div>
+                            </div>
+                            <div class="row text-center g-0 mt-1">
+                            <div class="col">10</div>
+                            <div class="col">
+                                <div class="active-day">11</div>
+                            </div>
+                            <div class="col">12</div>
+                            <div class="col">13</div>
+                            <div class="col">14</div>
+                            <div class="col">15</div>
+                            <div class="col">16</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Current Week -->
+                        <div class="current-week p-3 border-top">
+                            <div class="fw-medium mb-2">Current Week: 41 (Bunch Formation)</div>
+                            <!-- <div class="d-flex justify-content-between mb-3">
+                            <img src="/api/placeholder/50/50" alt="Growth Stage 1" class="img-fluid growth-stage">
+                            <img src="/api/placeholder/50/50" alt="Growth Stage 2" class="img-fluid growth-stage">
+                            <img src="/api/placeholder/50/50" alt="Growth Stage 3" class="img-fluid growth-stage">
+                            <img src="/api/placeholder/50/50" alt="Growth Stage 4" class="img-fluid growth-stage">
+                            <img src="/api/placeholder/50/50" alt="Growth Stage 5" class="img-fluid growth-stage">
+                            </div> -->
+                            
+                            <div class="d-flex justify-content-between small text-muted">
+                            <div class="text-center">
+                                <div>25-07-2024</div>
+                                <div>Plantation date</div>
+                            </div>
+                            <div class="text-center">
+                                <div>10-07-2025</div>
+                                <div>Harvest date</div>
+                            </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Previous Task -->
+                        <div class="task-item p-3 border-top">
+                            <div class="d-flex justify-content-between mb-1">
+                            <div class="small text-muted">Previous Task</div>
+                            <div class="small">Week 40</div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-1">
+                            <div class="task-date small text-end text-muted">28-03-2025</div>
+                            </div>
+                            <div class="fw-medium mb-1">WSF + Calcium Nitrate</div>
+                            <p class="small mb-2">Apply 7kg 00:00:50 + 2.5 kg Ca(NO₃) through drip.</p>
+                            <div class="d-flex justify-content-end">
+                            <!-- <button class="btn btn-sm btn-success">
+                                <i class="fab fa-whatsapp me-1"></i>
+                                WhatsApp Sent
+                            </button> -->
+                            </div>
+                        </div>
+                        
+                        <!-- Upcoming Task -->
+                        <div class="task-item p-3 border-top">
+                            <div class="d-flex justify-content-between mb-1">
+                            <div class="small text-muted">Upcoming Task</div>
+                            <div class="small">Week 41</div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-1">
+                            <div class="task-date small text-end text-muted">06-04-2025</div>
+                            </div>
+                            <div class="fw-medium mb-1">Fungicide Application</div>
+                            <p class="small mb-2">Apply to control fungal diseases like Sigatoka and Fusarium wilt.</p>
+                            <div class="d-flex justify-content-end">
+                            <!-- <button class="btn btn-sm btn-outline-success">
+                                <i class="fab fa-whatsapp me-1"></i>
+                                Send WhatsApp
+                            </button> -->
+                            </div>
+                        </div>
+                        
+                        <!-- Input Store -->
+                        <div class="input-store p-3 border-top">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                            <div class="fw-medium">Input Store</div>
+                            <div class="position-relative">
+                                <i class="fas fa-shopping-cart text-primary"></i>
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger small">1</span>
+                            </div>
+                            </div>
+                            <p class="small mb-3">Available brands: ROKO, Natico, SAAF</p>
+                            
+                            <!-- Product Cards -->
+                            <div class="row g-2 mb-3">
+                            <!-- Product 1 -->
+                            <div class="col-4">
+                                <div class="product-card position-relative">
+                                <div class="product-badge">20% OFF</div>
+                                <div class="product-img text-center mb-1">
+                                    <img src="https://5.imimg.com/data5/FK/TI/UH/SELLER-6399641/nativo-fungicides.jpg" alt="Natico Fungicide" class="img-fluid">
+                                </div>
+                                <div class="product-info small">
+                                    <div class="product-name">Natico Fungicide</div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                    <div class="product-rating">★ 4.7/5.0</div>
+                                    <i class="fas fa-heart text-muted"></i>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                    <div>Size</div>
+                                    <div>1 kg</div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Product 2 -->
+                            <div class="col-4">
+                                <div class="product-card position-relative active">
+                                <div class="product-badge limited-deal">Limited Time Deal</div>
+                                <div class="product-img text-center mb-1">
+                                    <img src="https://krushidukan.bharatagri.com/cdn/shop/files/BiostadtRokoFungicide_e5a3193f-1f08-4fe6-870f-8500a5efea02.webp?v=1725703257" alt="Boko Fungicide" class="img-fluid">
+                                </div>
+                                <div class="product-info small">
+                                    <div class="product-name">Boko Fungicide BIOSTAR</div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="fw-bold">₹344</span>
+                                        <span class="text-muted text-decoration-line-through">₹400</span>
+                                    </div>
+                                    <i class="fas fa-heart text-muted"></i>
+                                    </div>
+                                    <div class="text-success small">Save ₹ 56</div>
+                                </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Product 3 -->
+                            <div class="col-4">
+                                <div class="product-card position-relative">
+                                <div class="product-badge off-deal">10% Off for 2+</div>
+                                <div class="product-img text-center mb-1">
+                                    <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQwT_ppF-rbBpMWEjgKp2-uqBVM76TzJN9DkmXnWpmOsz6c11NYLW17zFjmswN-VlARW8knPBrxE7lQXhKgsKt9hF_e0UuI4GFo1EGvqpjlbdr8m2FkvIWH" alt="SAAF Fungicide" class="img-fluid">
+                                </div>
+                                <div class="product-info small">
+                                    <div class="product-name">SAAF Fungicide</div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                    <div class="product-rating">★ 3.5/5.0</div>
+                                    <i class="fas fa-heart text-muted"></i>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                    <div>Size</div>
+                                    <div>100 gms</div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                            
+                            <!-- Product Details -->
+                            <div class="product-details mb-3">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <div class="small fw-medium">Size</div>
+                                <select class="form-select form-select-sm size-selector">
+                                <option>250 gms</option>
+                                </select>
+                            </div>
+                            
+                            <div class="stock-info small mb-2">
+                                <div class="d-flex justify-content-between mb-1">
+                                <div>In stock:</div>
+                                <div class="fw-medium">Boko (250g)</div>
+                                </div>
+                                <div class="d-flex justify-content-between mb-1">
+                                <div>Dosage:</div>
+                                <div>2 gm / litre water</div>
+                                </div>
+                                <div class="d-flex justify-content-between mb-1">
+                                <div>Estimate Delivery:</div>
+                                <div>within 2-3 days</div>
+                                </div>
+                            </div>
+                            
+                            <div class="about-section small mb-3">
+                                <div class="fw-medium mb-1">About this item</div>
+                                <ul class="ps-3 mb-0">
+                                <li>Systemic fungicide with Thiophanate Methyl 70% WP</li>
+                                <li>Controls Sigatoka, Fusarium wilt, and leaf spots</li>
+                                <li>Suitable for foliar spray and soil drenching</li>
+                                </ul>
+                            </div>
+                            
+                            <button class="btn btn-success w-100">Add to Cart</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="farmer_profile.js"></script>
+</body>
+</html>

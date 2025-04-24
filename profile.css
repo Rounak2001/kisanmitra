@@ -1,0 +1,1053 @@
+/* Base Styles */
+:root {
+    --primary-color: #3e6b4e;
+    --secondary-color: #d8e8c2;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+}
+
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Dashboard Container */
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 76px;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 0;
+    position: fixed;
+    height: 100vh;
+    z-index: 1030;
+    transition: all 0.3s ease;
+}
+
+.sidebar-items {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 12px;
+}
+
+.sidebar-item i {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.sidebar-item.active {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-footer {
+    margin-top: auto;
+}
+
+/* Main Content Styles */
+.main-content {
+    flex: 1;
+    margin-left: 76px;
+    width: calc(100% - 76px);
+    transition: all 0.3s ease;
+}
+
+/* Header Styles */
+.header {
+    background-color: white;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+}
+
+/* Farmer Profile Specific Styles */
+.text-success {
+    color: var(--primary-color) !important;
+}
+
+.btn-success {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+.btn-outline-success {
+    color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+.btn-outline-success:hover {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+}
+
+/* Farm Details Card Styling */
+.farm-details-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.card {
+    border-radius: 12px;
+    overflow: hidden;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+    margin-bottom: 15px;
+}
+
+.card-title.text-success {
+    color: #3e6b4e !important;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+/* Acre Distribution Bar */
+.acre-distribution-bar {
+    display: flex;
+    height: 24px;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #f8f9fa;
+}
+
+.acre-bar {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    padding: 0 5px;
+}
+
+.acre-bar.banana-bar {
+    background-color: #d8e8c2;
+    width: 67%;
+    font-weight: 500;
+}
+
+.acre-bar.cotton-bar {
+    background-color: #3b7549;
+    width: 33%;
+    color: white;
+    font-weight: 500;
+}
+
+/* Map Styling */
+.farm-map-container {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #eee;
+}
+
+/* Weather Section */
+.weather-container {
+    color: #333;
+}
+
+.weather-icon {
+    color: #3e6b4e;
+    font-size: 20px;
+}
+
+.weather-forecast {
+    flex: 1;
+}
+
+hr {
+    border-color: #e9ecef;
+    margin: 12px 0;
+    opacity: 0.5;
+}
+
+.fa-circle {
+    font-size: 14px;
+}
+
+/* Sentiment Analysis Card */
+.sentiment-icon .fa-leaf {
+    color: #4ade80;
+    font-size: 18px;
+}
+
+/* Progress Bars */
+.progress-container {
+    height: 12px;
+    background-color: #f0f0f0;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    border-radius: 6px;
+}
+
+.progress-bar.confidence-bar {
+    background-color: #d8e8c2;
+}
+
+.progress-bar.stress-bar {
+    background-color: #4dabf7;
+}
+
+.progress-bar.adoption-bar {
+    background-color: #12b886;
+}
+
+/* Word Cloud */
+.word-cloud-container {
+    margin-top: 8px;
+}
+
+.tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    position: relative;
+    justify-content: center;
+    text-align: center;
+}
+
+.tag-cloud span {
+    display: inline-block;
+    white-space: nowrap;
+    margin-bottom: 4px;
+}
+
+/* Individual tag styles with varying font sizes and colors */
+.tag-desk-cows {
+    color: #12b886;
+    font-size: 11px;
+    font-weight: 500;
+    transform: rotate(-5deg);
+}
+
+.tag-cash-flow {
+    color: #4dabf7;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.tag-bunchy-top {
+    color: #e8b339;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.tag-rise-n-shine {
+    color: #3e6b4e;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.tag-wsf {
+    color: #f08c00;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.tag-bunch {
+    color: #adb5bd;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.tag-mahadhan {
+    color: #7048e8;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.tag-banana-g9 {
+    color: #12b886;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.tag-jai-shri-raam {
+    color: #f03e3e;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.tag-bjp {
+    color: #f59f00;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.tag-drip-irrigation {
+    color: #1098ad;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.tag-no-labour {
+    color: #adb5bd;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.tag-credit {
+    color: #f76707;
+    font-size: 12px;
+    font-weight: 500;
+    transform: rotate(5deg);
+}
+
+/* Farmer Contact Buttons */
+.contact-btn {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #f8f9fa;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+/* Analytics Cards - Stats */
+.stat-card {
+    background: linear-gradient(to top, rgba(217, 237, 146, 0.7), rgba(181, 228, 140, 0.7));
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border: none;
+    height: 80px;
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+}
+
+.stat-icon {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.7);
+    margin-right: 8px;
+}
+
+.stat-value {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 0;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: #495057;
+}
+
+/* Timeline Section - MADE SMALLER */
+.timeline-container {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 10px; /* Reduced margin */
+    width: 100%;
+    max-width: 100%;
+}
+
+.compact-timeline {
+    padding-left: 20px;
+}
+
+.timeline-line {
+    position: absolute;
+    width: 2px;
+    background-color: #3e6b4e;
+    top: 0;
+    bottom: 0;
+    left: 10px; /* Moved line closer to edge */
+    z-index: 1;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 15px; /* Reduced spacing between items */
+    width: 100%;
+}
+
+.timeline-dot {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #3e6b4e;
+    top: 15px;
+    left: -15px;
+    z-index: 2;
+}
+
+.timeline-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    overflow: hidden;
+    padding: 0;
+}
+
+.header-section {
+    background-color: #f9f9f9;
+    padding: 8px 12px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+}
+
+.timeline-label {
+    color: #666;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.timeline-title {
+    font-size: 14px; /* Smaller font size */
+    font-weight: 600;
+    color: #333;
+    margin: 8px 12px 2px 12px;
+}
+
+.timeline-date {
+    color: #888;
+    font-size: 12px;
+    margin: 0 12px 6px 12px;
+}
+
+.timeline-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 12px 8px 12px;
+}
+
+.timeline-meta {
+    display: flex;
+    align-items: center;
+}
+
+.meta-text {
+    color: #3e6b4e;
+    font-size: 12px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+  }
+  
+  .action-btn {
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid #e0e0e0;
+    background-color: #fff;
+    color: #555;
+    padding: 0;
+    font-size: 10px;
+    transition: all 0.2s ease;
+  }
+  
+  .action-btn:hover {
+    background-color: #f8f9fa;
+    color: #3e6b4e;
+    border-color: #3e6b4e;
+  }
+
+.status-badge {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    background-color: rgba(62, 107, 79, 0.1);
+    color: #3e6b4e;
+}
+
+/* AI Agronomist Section */
+.ai-agronomist-container {
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    background-color: #fff;
+    overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    margin-bottom: 15px;
+}
+
+.ai-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.ai-title {
+    color: #2D6A4F;
+    font-weight: 500;
+    margin: 0;
+    font-size: 16px;
+}
+
+.more-options-btn {
+    background: none;
+    border: none;
+    color: #888;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.ai-content {
+    padding: 15px;
+    text-align: center;
+}
+
+.question-text {
+    color: #444;
+    font-weight: 500;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.button-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+    justify-content: center;
+}
+
+.option-btn {
+    background-color: #fff;
+    border: 1px solid #2D6A4F;
+    color: #2D6A4F;
+    border-radius: 4px;
+    padding: 6px 10px;
+    font-size: 12px;
+    white-space: nowrap;
+    cursor: pointer;
+    flex: 1;
+    transition: background-color 0.2s;
+}
+
+.option-btn:hover {
+    background-color: rgba(45, 106, 79, 0.1);
+}
+
+.chat-input-container {
+    display: flex;
+    align-items: center;
+    margin: 15px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    padding: 5px;
+    overflow: hidden;
+}
+
+.chat-input {
+    flex: 1;
+    border: none;
+    padding: 8px 12px;
+    outline: none;
+    font-size: 14px;
+}
+
+.input-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.input-btn {
+    background: none;
+    border: none;
+    color: #888;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.send-btn {
+    background-color: #2D6A4F;
+    border: none;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+/* Calendar Styles */
+.banana-calendar-container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', sans-serif;
+    height: auto;
+}
+
+.calendar-header {
+    border-bottom: 1px solid #eee;
+}
+
+.active-day {
+    background-color: #2D6A4F;
+    color: white;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    margin: 0 auto;
+    font-size: 12px;
+}
+
+.current-week {
+    padding: 12px;
+    border-top: 1px solid #eee;
+}
+
+.task-item {
+    background-color: #f9f9f9;
+    padding: 12px;
+    border-top: 1px solid #eee;
+}
+
+.product-card {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 8px;
+    position: relative;
+    height: 100%;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.product-card.selected-product {
+    border-color: #2D6A4F;
+    border-width: 2px;
+    box-shadow: 0 3px 10px rgba(45, 106, 79, 0.2);
+    transform: translateY(-3px);
+    background-color: rgba(216, 232, 194, 0.2);
+}
+  
+.selected-product .product-name {
+    color: #2D6A4F;
+    font-weight: 600;
+}
+  
+.product-card:hover {
+    transform: translateY(-2px);
+}
+
+.product-card.active {
+    border-color: #2D6A4F;
+}
+
+.product-badge {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background-color: #ff9800;
+    color: white;
+    font-size: 8px;
+    padding: 2px 4px;
+    border-radius: 3px;
+    z-index: 1;
+}
+
+.product-badge.limited-deal {
+    background-color: #dc3545;
+}
+
+.product-badge.off-deal {
+    background-color: #17a2b8;
+}
+
+.product-img {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-img img {
+    max-height: 60px;
+    object-fit: contain;
+}
+
+.product-info {
+    font-size: 11px;
+}
+
+.product-name {
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.size-selector {
+    width: auto;
+    min-width: 100px;
+    font-size: 12px;
+    padding: 2px 6px;
+    height: auto;
+}
+
+.input-store {
+    padding: 12px;
+    border-top: 1px solid #eee;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1199.98px) {
+    .sidebar-item span {
+        font-size: 10px;
+    }
+    
+    .stat-value {
+        font-size: 16px;
+    }
+    
+    .farm-map-container #farm-map {
+        height: 120px !important;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .sidebar {
+        width: 60px;
+    }
+    
+    .main-content {
+        margin-left: 60px;
+        width: calc(100% - 60px);
+    }
+    
+    .sidebar-item i {
+        font-size: 16px;
+    }
+    
+    .sidebar-item span {
+        font-size: 9px;
+    }
+    
+    /* Adjust columns for better flow */
+    .col-lg-3, .col-lg-5, .col-lg-4 {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    .header .fs-4 {
+        font-size: 1rem !important;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .sidebar {
+        width: 50px;
+    }
+    
+    .main-content {
+        margin-left: 50px;
+        width: calc(100% - 50px);
+    }
+    
+    .sidebar-item span {
+        display: none;
+    }
+    
+    .sidebar-item {
+        padding: 10px 0;
+    }
+    
+    .product-card .product-img {
+        height: 50px;
+    }
+    
+    .timeline-container {
+        padding-left: 25px;
+    }
+    
+    .timeline-dot {
+        left: -15px;
+    }
+    
+    .timeline-line {
+        left: 8px;
+    }
+    
+    /* Stack columns properly */
+    .row > [class*="col-"] {
+        margin-bottom: 15px;
+    }
+    
+    .stat-card {
+        height: 70px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    body {
+        font-size: 0.875rem;
+    }
+    
+    .sidebar {
+        width: 45px;
+    }
+    
+    .main-content {
+        margin-left: 45px;
+        width: calc(100% - 45px);
+    }
+    
+    .sidebar-item i {
+        font-size: 14px;
+    }
+    
+    .container-fluid {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    .row {
+        margin-left: -5px;
+        margin-right: -5px;
+    }
+    
+    .col-12, .col-sm-6, .col-md-4, .col-lg-3, .col-md-8, .col-lg-5, .col-lg-4 {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    
+    .card-body {
+        padding: 10px;
+    }
+    
+    .farmer-name {
+        font-size: 1.25rem !important;
+    }
+    
+    .timeline-container {
+        padding-left: 20px;
+    }
+    
+    .timeline-dot {
+        width: 8px;
+        height: 8px;
+        left: -12px;
+    }
+    
+    .timeline-line {
+        left: 5px;
+    }
+    
+    .button-row {
+        flex-direction: column;
+    }
+    
+    .option-btn {
+        margin-bottom: 5px;
+    }
+    
+    /* Mobile sidebar toggle */
+    .sidebar-toggle {
+        display: block;
+        position: fixed;
+        bottom: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+        background-color: var(--primary-color);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        z-index: 1040;
+    }
+    
+    /* Show more compact buttons on mobile */
+    .button-row {
+        flex-wrap: wrap;
+    }
+    
+    .option-btn {
+        flex: 0 0 calc(50% - 5px);
+        margin-bottom: 5px;
+    }
+}
+
+/* Mobile-first sidebar collapse */
+@media (max-width: 479.98px) {
+    .sidebar {
+        transform: translateX(-100%);
+        width: 0;
+    }
+    
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    .sidebar.show {
+        transform: translateX(0);
+        width: 180px;
+    }
+    
+    .sidebar.show .sidebar-item span {
+        display: inline-block;
+    }
+    
+    /* Show sidebar menu button */
+    .menu-toggle {
+        display: block;
+        margin-right: 10px;
+    }
+    
+    /* Adjusted header for mobile */
+    .header .col:first-child {
+        display: flex;
+        align-items: center;
+    }
+    
+    /* Mobile optimized stats */
+    .stat-card {
+        height: 60px;
+        padding: 8px;
+    }
+    
+    .stat-value {
+        font-size: 14px;
+    }
+    
+    /* Reduce card spacing */
+    .card {
+        margin-bottom: 10px;
+    }
+    
+    /* Smaller font sizes */
+    h5.card-title, .ai-title {
+        font-size: 14px;
+    }
+    
+    .farmer-name {
+        font-size: 1.1rem !important;
+    }
+    
+    /* More compact timeline */
+    .timeline-title {
+        font-size: 13px;
+        margin: 6px 10px 2px 10px;
+    }
+    
+    .timeline-date {
+        font-size: 11px;
+        margin: 0 10px 4px 10px;
+    }
+    
+    .timeline-footer {
+        padding: 4px 10px 6px 10px;
+    }
+    
+    /* Simplify product cards */
+    .product-card {
+        padding: 6px;
+    }
+    
+    .product-info {
+        font-size: 10px;
+    }
+}
+
+/* Add a mobile menu button */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-size: 20px;
+}
+
+@media (max-width: 479.98px) {
+    .mobile-menu-btn {
+        display: block;
+        position: fixed;
+        bottom: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+        background-color: var(--primary-color);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        z-index: 1040;
+    }
+}
+
+/* Animation classes */
+.fadeIn {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.flex-1 {
+    flex: 1;
+}

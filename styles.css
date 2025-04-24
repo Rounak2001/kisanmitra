@@ -1,0 +1,763 @@
+/* Custom Variables */
+:root {
+    --primary-color: #3e6b4e;
+    --secondary-color: #d8e8c2;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+ }
+ 
+ /* Base Styles */
+ body {
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+ }
+ 
+ /* Dashboard Container */
+ .dashboard-container {
+    display: flex;
+    min-height: 100vh;
+ }
+ 
+ /* Sidebar Styles */
+ .sidebar {
+    width: 76px;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 0;
+    position: fixed;
+    height: 100vh;
+    z-index: 10;
+ }
+ 
+ .sidebar-items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+ }
+ 
+ .sidebar-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 12px;
+ }
+ 
+ .sidebar-item i {
+    font-size: 20px;
+    margin-bottom: 5px;
+ }
+ 
+ .sidebar-item.active {
+    background-color: rgba(255, 255, 255, 0.1);
+ }
+ 
+ .sidebar-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+ }
+ 
+ .sidebar-footer {
+    margin-top: auto;
+ }
+ 
+ /* Main Content Styles */
+ .main-content {
+    flex: 1;
+    margin-left: 76px;
+    overflow-x: hidden;
+ }
+ 
+ /* Stat Card Styles */
+ .narrow-card {
+    max-width: 290px;
+    max-height: 139px;
+ }
+ 
+ .stat-card {
+    background: linear-gradient(to top, #D9ED92, #B5E48C);
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: none;
+    height: 100%;
+    width: 100%;
+}
+.card.stat-card {
+    background: linear-gradient(to top, #D9ED92, #B5E48C);
+    border-radius: 20px;
+    border: none;
+}
+ .card.stat-card {
+    background: linear-gradient(to top, #D9ED92, #B5E48C);
+    border-radius: 20px;
+    border: none;
+ }
+ 
+ .trend-icon {
+    width: 30px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+ 
+ .trend-icon.up {
+    color: var(--success-color);
+ }
+ 
+ .trend.up {
+    color: var(--success-color);
+ }
+ 
+ .trend.down {
+    color: var(--danger-color);
+ }
+ 
+ /* Crop Card Styles */
+ .crop-card {
+    transition: all 0.2s ease;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border: none;
+ }
+ 
+ .crop-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+ }
+ 
+ .crop-card.active {
+    border-left: 3px solid #3e6b4e !important;
+ }
+ 
+ /* Background colors for crop cards */
+ .bg-light-yellow {
+    background-color: #fffbeb;
+ }
+ 
+ .bg-light-pink {
+    background-color: #fdf2f8;
+ }
+ 
+ .bg-light-orange {
+    background-color: #fff7ed;
+ }
+ 
+ .bg-light-beige {
+    background-color: #fefce8;
+ }
+ 
+ /* Colored section styling */
+ .colored-section {
+    border-radius: 8px 8px 0 0;
+    position: relative;
+ }
+ 
+ /* Shadow for the bottom of the colored section */
+ .shadow-bottom {
+    position: relative;
+ }
+ 
+ .shadow-bottom:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    box-shadow: 0 4px 6px -6px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+ }
+ 
+ /* Make card stats appear below image outside of colored area */
+ .crop-card .card-body {
+    padding-bottom: 0;
+ }
+ 
+ /* Rounded corners utility */
+ .rounded-4 {
+    border-radius: 0.75rem;
+ }
+ 
+ /* Task Priority Indicators */
+ .task-priority {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+ }
+ 
+ .task-priority.high {
+    background-color: var(--danger-color);
+ }
+ 
+ .task-priority.medium {
+    background-color: var(--warning-color);
+ }
+ 
+ /* Task Tabs */
+ .task-tabs .nav-link {
+    font-size: 14px;
+    padding: 0.25rem 0.75rem;
+ }
+ 
+ .task-tabs .nav-link.active {
+    background-color: var(--primary-color);
+ }
+ 
+ /* Analytics Section Styling */
+ .analytics-section {
+    background-color: #fff;
+    border-radius: 10px;
+ }
+ 
+ .analytics-card {
+    padding: 16px;
+    border-radius: 8px;
+    background-color: #fff;
+    border: 1px solid #f0f0f0 !important;
+ }
+ 
+ .analytics-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+ }
+ 
+ .analytics-trend {
+    font-size: 12px;
+    font-weight: 500;
+ }
+ 
+ .analytics-chart {
+    margin-bottom: 15px;
+ }
+ 
+ /* Chart placeholders */
+ .chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 130px;
+    position: relative;
+ }
+ 
+ .vertical-chart {
+    height: 150px;
+ }
+ 
+ .donut-chart {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+ 
+ /* WhatsApp chart - semicircle */
+ .green-chart {
+    background: linear-gradient(to right, #00c853 0% 30%, #ffeb3b 30% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 0, 50% 50%);
+    transform: rotate(-90deg);
+ }
+ 
+ .green-chart .chart-label {
+    position: absolute;
+    transform: rotate(90deg);
+    top: 35%;
+    right: 30%;
+    font-size: 12px;
+    font-weight: 500;
+    color: #444;
+ }
+ 
+ .green-chart .chart-label-alt {
+    position: absolute;
+    transform: rotate(90deg);
+    bottom: 35%;
+    left: 30%;
+    font-size: 12px;
+    font-weight: 500;
+    color: #444;
+ }
+ 
+ /* Calls chart - full circle */
+ .yellow-chart {
+    background: conic-gradient(#ffeb3b 0% 64%, #e0e0e0 64% 100%);
+ }
+ 
+ .yellow-chart .chart-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #444;
+ }
+ 
+ /* Revenue chart - full circle */
+ .blue-chart {
+    background: conic-gradient(#2196f3 0% 30%, #e0e0e0 30% 100%);
+ }
+ 
+ .blue-chart .chart-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #444;
+ }
+ 
+ /* Legend styling */
+ .analytics-legend {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    font-size: 12px;
+ }
+ 
+ .horizontal-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 12px;
+ }
+ 
+ .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+ }
+ 
+ .legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+ }
+ 
+ .legend-dot.replied {
+    background-color: #00c853;
+ }
+ 
+ .legend-dot.read {
+    background-color: #ffeb3b;
+ }
+ 
+ .legend-dot.picked {
+    background-color: #ffeb3b;
+ }
+ 
+ .legend-dot.inputs {
+    background-color: #2196f3;
+ }
+ 
+ .legend-dot.forward {
+    background-color: #e0e0e0;
+ }
+ 
+ /* Chat Widget */
+ .chat-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+ }
+ 
+ .chat-button {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+ }
+ 
+ /* Legend Colors for charts */
+ .legend-color {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    border-radius: 50%;
+ }
+ 
+ .legend-color.replied {
+    background-color: #4CAF50;
+ }
+ 
+ .legend-color.read {
+    background-color: #FFEB3B;
+ }
+ 
+ .legend-color.picked {
+    background-color: #FFEB3B;
+ }
+ 
+ .legend-color.inputs {
+    background-color: #2196F3;
+ }
+ 
+ .legend-color.forward {
+    background-color: #E0E0E0;
+ }
+ 
+ /* Responsive Adjustments */
+ @media (max-width: 992px) {
+    .sidebar {
+        width: 60px;
+    }
+    
+    .main-content {
+        margin-left: 60px;
+    }
+    
+    .sidebar-item i {
+        font-size: 18px;
+    }
+    
+    .sidebar-item span {
+        font-size: 10px;
+    }
+ }
+ 
+ @media (max-width: 768px) {
+    .sidebar {
+        width: 50px;
+    }
+    
+    .main-content {
+        margin-left: 50px;
+    }
+    
+    .sidebar-item span {
+        display: none;
+    }
+    
+    .sidebar-item {
+        padding: 10px 0;
+    }
+ }
+ 
+ @media (max-width: 576px) {
+    .sidebar {
+        width: 0;
+        transform: translateX(-100%);
+    }
+    
+    .main-content {
+        margin-left: 0;
+    }
+ }
+
+ @media (max-width: 992px) {
+    .sidebar {
+        width: 60px;
+    }
+    
+    .main-content {
+        margin-left: 60px;
+    }
+    
+    .sidebar-item i {
+        font-size: 18px;
+    }
+    
+    .sidebar-item span {
+        font-size: 10px;
+    }
+
+    .map-content {
+        min-height: 250px;
+    }
+    
+    .stat-card {
+        padding: 10px;
+    }
+    
+    .display-6 {
+        font-size: 1.25rem;
+    }
+    
+    .trend {
+        font-size: 0.8rem;
+    }
+}
+ /* Tasks section styling */
+.card {
+    border-radius: 12px;
+}
+
+.task-filter {
+    display: flex;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.task-btn {
+    border: none;
+    background: none;
+    padding: 6px 16px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.task-btn.active {
+    background-color: #3e6b4e;
+    color: white;
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    color: #555;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.task-list {
+    margin-top: 10px;
+}
+
+.task-item {
+    padding: 12px 0;
+}
+
+.task-divider {
+    margin: 0;
+    opacity: 0.1;
+    border-top: 1px solid #333;
+}
+
+.priority-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    align-self: center;
+}
+
+.priority-dot.high {
+    background-color: #dc3545;
+}
+
+.priority-dot.medium {
+    background-color: #ffc107;
+}
+
+.priority-dot.low {
+    background-color: #28a745;
+}
+
+/* Farmer Analytics Styles */
+.analytics-card {
+    background-color: white;
+}
+
+.legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.legend-dot.replied {
+    background-color: #00c853; /* Green */
+}
+
+.legend-dot.read {
+    background-color: #ffeb3b; /* Yellow */
+}
+
+.legend-dot.picked {
+    background-color: #ffeb3b; /* Yellow */
+}
+
+.legend-dot.inputs {
+    background-color: #2196f3; /* Blue */
+}
+
+.legend-dot.forward {
+    background-color: #e0e0e0; /* Light Gray */
+}
+
+/* Donut chart elements */
+.donut-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+/* WhatsApp donut chart components */
+.whatsapp-donut-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #e0e0e0;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 0, 50% 50%);
+}
+
+.whatsapp-donut-fill {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(#00c853 0% 70%, #ffeb3b 70% 100%);
+    transform: rotate(-90deg);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 0, 50% 50%);
+}
+
+/* Calls donut chart components */
+.calls-donut-bg {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #e0e0e0;
+}
+
+.calls-donut-fill {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: conic-gradient(#ffeb3b 0% 64%, #e0e0e0 64% 100%);
+    transform: rotate(-90deg);
+}
+
+/* Revenue donut chart components */
+.donut-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+  }
+
+  .revenue-donut-bg {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #ccc;
+  }
+
+  .revenue-donut-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(
+      #6bbded 0% 30%,   /* Blue part */
+      transparent 30% 100%  /* Transparent rest */
+    );
+    z-index: 1;
+  }
+
+  .donut-hole {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 65%;
+    height: 65%;
+    background: white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+
+  .chart-label.center {
+    position: absolute;
+    right: -20px;
+    top: 25%;
+    background: white;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 14px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    z-index: 3;
+  }
+
+
+/* Donut hole - creates the hollow center */
+.donut-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+  }
+
+  .calls-donut-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(#d9e88e 0% 64%, #ccc 64% 100%);
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .donut-hole {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 50%;
+    background: white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .chart-label {
+    position: absolute;
+    left: -30px;
+    bottom: 0;
+    width: 50px;
+    height: 50px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+
+.chart-label.center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.chart-label.left {
+    top: 30%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+}
+
+.chart-label.right {
+    bottom: 30%;
+    right: 25%;
+    transform: translate(50%, 50%);
+}
+
+/* Badge styling for trend indicators */
+.badge.bg-success.bg-opacity-10 {
+    color: #28a745;
+}
+
+.badge.bg-danger.bg-opacity-10 {
+    color: #dc3545;
+}

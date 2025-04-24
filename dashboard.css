@@ -1,0 +1,681 @@
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    .card-title {
+        font-size: 1rem;
+    }
+    
+    .display-6 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .sidebar {
+        width: 60px;
+    }
+    
+    .main-content {
+        margin-left: 60px;
+    }
+    
+    .sidebar-item i {
+        font-size: 18px;
+    }
+    
+    .sidebar-item span {
+        font-size: 10px;
+    }
+
+    .map-content {
+        min-height: 250px;
+    }
+    
+    .stat-card {
+        padding: 10px;
+    }
+    
+    .display-6 {
+        font-size: 1.25rem;
+    }
+    
+    .trend {
+        font-size: 0.8rem;
+    }
+    
+    .card-body {
+        padding: 10px;
+    }
+}/* Custom Variables */
+:root {
+    --primary-color: #3e6b4e;
+    --secondary-color: #d8e8c2;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+}
+
+/* Base Styles */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Dashboard Container */
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 76px;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 0;
+    position: fixed;
+    height: 100vh;
+    z-index: 10;
+}
+
+.sidebar-items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebar-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 12px;
+}
+
+.sidebar-item i {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.sidebar-item.active {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-footer {
+    margin-top: auto;
+}
+
+/* Main Content Styles */
+.main-content {
+    flex: 1;
+    margin-left: 76px;
+    overflow-x: hidden;
+}
+
+/* Stat Card Styles */
+.stat-card {
+    background: linear-gradient(to top, #D9ED92, #B5E48C);
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: none;
+    height: 100%;
+    width: 100%;
+}
+
+.card.stat-card {
+    background: linear-gradient(to top, #D9ED92, #B5E48C);
+    border-radius: 20px;
+    border: none;
+}
+
+.trend-icon {
+    width: 30px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.trend-icon.up {
+    color: var(--success-color);
+}
+
+.trend.up {
+    color: var(--success-color);
+}
+
+.trend.down {
+    color: var(--danger-color);
+}
+
+/* Crop Card Styles */
+.crop-card {
+    transition: all 0.2s ease;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border: none;
+    width: 100%;
+}
+
+.crop-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+}
+
+.crop-card.active {
+    border-left: 3px solid #3e6b4e !important;
+}
+
+/* Background colors for crop cards */
+.bg-light-yellow {
+    background-color: #fffbeb;
+}
+
+.bg-light-pink {
+    background-color: #fdf2f8;
+}
+
+.bg-light-orange {
+    background-color: #fff7ed;
+}
+
+.bg-light-beige {
+    background-color: #fefce8;
+}
+
+/* Colored section styling */
+.colored-section {
+    border-radius: 8px 8px 0 0;
+    position: relative;
+}
+
+/* Shadow for the bottom of the colored section */
+.shadow-bottom {
+    position: relative;
+}
+
+.shadow-bottom:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    box-shadow: 0 4px 6px -6px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Analytics Section Styling */
+.analytics-section {
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.analytics-card {
+    padding: 16px;
+    border-radius: 8px;
+    background-color: #fff;
+    border: 1px solid #f0f0f0 !important;
+}
+
+.analytics-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.analytics-trend {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.analytics-chart {
+    margin-bottom: 15px;
+}
+
+/* Legend styling */
+.legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.legend-dot.replied {
+    background-color: #00c853;
+}
+
+.legend-dot.read {
+    background-color: #ffeb3b;
+}
+
+.legend-dot.picked {
+    background-color: #ffeb3b;
+}
+
+.legend-dot.inputs {
+    background-color: #2196f3;
+}
+
+.legend-dot.forward {
+    background-color: #e0e0e0;
+}
+
+/* Donut chart elements */
+.donut-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+/* WhatsApp donut chart components */
+.whatsapp-donut-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #e0e0e0;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 0, 50% 50%);
+}
+
+.whatsapp-donut-fill {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(#00c853 0% 70%, #ffeb3b 70% 100%);
+    transform: rotate(-90deg);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 0, 50% 50%);
+}
+
+/* Calls donut chart components */
+.calls-donut-bg {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: conic-gradient(#d9e88e 0% 64%, #ccc 64% 100%);
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Revenue donut chart components */
+.revenue-donut-bg {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #ccc;
+}
+
+.revenue-donut-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(
+      #6bbded 0% 30%,   /* Blue part */
+      transparent 30% 100%  /* Transparent rest */
+    );
+    z-index: 1;
+}
+
+.donut-hole {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 50%;
+    background: white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.chart-label {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+    font-size: 14px;
+    z-index: 3;
+}
+
+.chart-label.center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.chart-label.left {
+    top: 30%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+}
+
+.chart-label.right {
+    bottom: 30%;
+    right: 25%;
+    transform: translate(50%, 50%);
+}
+
+/* Badge styling for trend indicators */
+.badge.bg-success.bg-opacity-10 {
+    color: #28a745;
+}
+
+.badge.bg-danger.bg-opacity-10 {
+    color: #dc3545;
+}
+
+/* Map Section Styles */
+.map-container {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.map-header {
+    background-color: white;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.map-content {
+    background-color: #f5f5f5;
+    min-height: 300px;
+}
+
+.map-control {
+    width: 32px;
+    height: 32px;
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.map-overlay-stats {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+}
+
+.stat-box {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* AI Agronomist Styles */
+.ai-option-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.ai-option-card:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--primary-color);
+}
+
+.ai-input-container {
+    margin-top: 20px;
+}
+
+.input-actions {
+    right: 15px;
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    color: #555;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 5px;
+}
+
+.send-button {
+    background-color: var(--primary-color);
+    color: white;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    border-radius: 12px;
+    margin-bottom: 0;
+}
+
+/* Chat Widget */
+.chat-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+.chat-button {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    .card-title {
+        font-size: 1rem;
+    }
+    
+    .display-6 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .sidebar {
+        width: 60px;
+    }
+    
+    .main-content {
+        margin-left: 60px;
+    }
+    
+    .sidebar-item i {
+        font-size: 18px;
+    }
+    
+    .sidebar-item span {
+        font-size: 10px;
+    }
+
+    .map-content {
+        min-height: 250px;
+    }
+    
+    .stat-card {
+        padding: 10px;
+    }
+    
+    .display-6 {
+        font-size: 1.25rem;
+    }
+    
+    .trend {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 50px;
+    }
+    
+    .main-content {
+        margin-left: 50px;
+    }
+    
+    .sidebar-item span {
+        display: none;
+    }
+    
+    .sidebar-item {
+        padding: 10px 0;
+    }
+
+    .donut-container {
+        width: 120px;
+        height: 120px;
+    }
+
+    .chart-label {
+        width: 40px;
+        height: 40px;
+        font-size: 12px;
+    }
+    
+    .stat-card .trend-icon {
+        width: 24px;
+        height: 24px;
+        font-size: 12px;
+    }
+    
+    .colored-section {
+        padding: 10px !important;
+    }
+    
+    .colored-section img {
+        height: 70px !important;
+    }
+    
+    .analytics-card {
+        padding: 10px;
+    }
+    
+    .ai-option-card {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    .sidebar {
+        width: 0;
+        transform: translateX(-100%);
+    }
+    
+    .main-content {
+        margin-left: 0;
+    }
+
+    .map-content {
+        min-height: 200px;
+    }
+
+    .analytics-card {
+        padding: 10px;
+    }
+
+    .ai-option-card {
+        padding: 8px 5px;
+    }
+
+    .ai-option-card span {
+        font-size: 11px;
+    }
+    
+    .display-6 {
+        font-size: 1.1rem;
+    }
+    
+    .trend {
+        font-size: 0.7rem;
+        margin-left: 5px !important;
+    }
+    
+    .card-title {
+        font-size: 0.9rem;
+    }
+    
+    .trend-icon {
+        width: 20px;
+        height: 20px;
+        font-size: 10px;
+    }
+    
+    .card-body {
+        padding: 10px;
+    }
+    
+    .ai-chat-container h6 {
+        font-size: 1rem;
+    }
+    
+    .donut-container {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .chart-label {
+        width: 35px;
+        height: 35px;
+        font-size: 10px;
+    }
+    
+    .colored-section {
+        padding: 8px !important;
+    }
+    
+    .colored-section img {
+        height: 60px !important;
+    }
+    
+    .dashboard-content {
+        padding: 10px !important;
+    }
+    
+    .row {
+        --bs-gutter-x: 0.5rem;
+    }
+    
+    .g-3 {
+        --bs-gutter-y: 0.5rem;
+    }
+    
+    .g-4 {
+        --bs-gutter-y: 0.75rem;
+    }
+}

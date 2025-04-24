@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agricultural Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <!-- <aside class="sidebar">
+            <div class="sidebar-items">
+                <div class="sidebar-item active">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-comment-dots"></i>
+                    <span>Chatbot</span>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Map</span>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-user-friends"></i>
+                    <span>Farmer</span>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-seedling"></i>
+                    <span>Crops</span>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-tasks"></i>
+                    <span>Tasks</span>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>Whatsapp</span>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-phone"></i>
+                    <span>IVR Calls</span>
+                </div>
+            </div>
+            <div class="sidebar-footer">
+                <div class="sidebar-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </div>
+            </div>
+        </aside> -->
+        <aside class="sidebar">
+            <div class="sidebar-items">
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <div class="sidebar-item active">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </div>
+                </a>
+                <a href="chat_bot.html" style="text-decoration: none; color: inherit;">
+                    <div class="sidebar-item">
+                        <i class="fas fa-comment-dots"></i>
+                        <span>Chatbot</span>
+                    </div>
+                </a>
+                <a href="map.html" style="text-decoration: none; color: inherit;">
+                    <div class="sidebar-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Map</span>
+                    </div>
+                </a>
+                <a href="profile.html" style="text-decoration: none; color: inherit;">
+                    <div class="sidebar-item">
+                        <i class="fas fa-user-friends"></i>
+                        <span>Farmer</span>
+                    </div>
+                </a>
+                <a href="chat.html"  style="text-decoration: none; color: inherit;">
+                    <div class="sidebar-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Whatsapp</span>
+                    </div>
+                </a>
+                <a href="crops.html" style="text-decoration: none; color: inherit;">
+                    <div class="sidebar-item">
+                        <i class="fas fa-seedling"></i>
+                        <span>Crops</span>
+                    </div>
+                </a>
+                <a href="tasks.html" style="text-decoration: none; color: inherit;">
+                    <div class="sidebar-item">
+                        <i class="fas fa-tasks"></i>
+                        <span>Tasks</span>
+                    </div>
+                </a>
+
+                <a href="ivr.html" style="text-decoration: none; color: inherit;">
+                    <div class="sidebar-item">
+                        <i class="fas fa-phone"></i>
+                        <span>IVR Calls</span>
+                    </div>
+                </a>
+            </div>
+            <div class="sidebar-footer">
+                <a href="settings.html" style="text-decoration: none; color: inherit;">
+                    <div class="sidebar-item">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </div>
+                </a>
+            </div>
+        </aside>
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header bg-white shadow-sm">
+                <div class="container-fluid py-3">
+                    <div class="row align-items-center">
+                        <div class="col-md-3">
+                            <h1 class="fs-4 fw-semibold mb-0">Happy Monday, Gourav</h1>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <input type="text" class="form-control rounded-pill bg-light" placeholder="How can I help you today?">
+                                <button class="btn position-absolute end-0 top-0 bottom-0 bg-transparent border-0" type="button">
+                                    <i class="fas fa-search text-muted"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="d-flex justify-content-end align-items-center">
+                                <div class="me-4">
+                                    <i class="fas fa-bell fs-5 text-muted"></i>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9us0MxB35Wv3z03TJFrxhub-WyxqpBKAsjQ&s" alt="User Profile" class="rounded-circle me-2" width="40" height="40">
+                                    <div class="d-flex flex-column">
+                                        <span class="fw-semibold small">Gourav</span>
+                                        <span class="text-muted small">User</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down ms-2 small text-muted"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content p-4">
+                <div class="row">
+                    <!-- Left Column with Stats Cards and Crops Grown -->
+                    <div class="col-lg-8">
+                        <!-- Stats Cards -->
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <div class="card stat-card h-100">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <h5 class="card-title mb-0">Total Farmers</h5>
+                                            <div class="trend-icon up rounded-circle d-flex align-items-center justify-content-center">
+                                                <i class="fas fa-arrow-trend-up"></i>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-baseline">
+                                            <h2 class="display-6 fw-bold mb-0">42,462</h2>
+                                            <span class="ms-4 trend up">+2.5%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card stat-card h-100">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <h5 class="card-title mb-0">Total Acres</h5>
+                                            <div class="trend-icon up rounded-circle d-flex align-items-center justify-content-center">
+                                                <i class="fas fa-arrow-trend-up"></i>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-baseline">
+                                            <h2 class="display-6 fw-bold mb-0">93,891</h2>
+                                            <span class="ms-2 trend up">+4.1%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card stat-card h-100">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <h5 class="card-title mb-0">Total Trees</h5>
+                                            <div class="trend-icon up rounded-circle d-flex align-items-center justify-content-center">
+                                                <i class="fas fa-arrow-trend-up"></i>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-baseline">
+                                            <h2 class="display-6 fw-bold mb-0">6.8cr</h2>
+                                            <span class="ms-2 trend up">+1.3%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Crops Section - Directly below stat cards -->
+                        <div class="card mb-4 border-0 shadow-sm">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h5 class="card-title mb-0">Crops Grown</h5>
+                                    <a href="#" class="text-decoration-none text-success d-flex align-items-center">
+                                        View All <i class="fas fa-chevron-right ms-1 small"></i>
+                                    </a>
+                                </div>
+                                <div class="row g-3">
+                                    <!-- Banana Card -->
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="card crop-card h-100 border-0">
+                                            <!-- Colored top section with image and crop name -->
+                                            <div class="colored-section bg-light-yellow position-relative p-4 shadow-bottom">
+                                                <div class="position-absolute top-0 end-0 p-2">
+                                                    <i class="fas fa-ellipsis-h text-muted"></i>
+                                                </div>
+                                                <div class="text-center py-2">
+                                                    <img src="images/image (1).png" alt="Banana" class="img-fluid" style="height: 100px; object-fit: contain;">
+                                                </div>
+                                                <div class="text-start mt-1">
+                                                    <h6 class="mb-0">Banana</h6>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Bottom section with farmers and acres info -->
+                                            <div class="p-2 text-start">
+                                                <div class="fw-semibold small">10,836 farmers</div>
+                                                <div class="text-muted small">19,502 acres</div>
+                                            </div>
+                                        </div>
+                                    </div>                         
+                                    <!-- Pomegranate Card -->
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="card crop-card h-100 border-0 shadow-sm">
+                                            <!-- Colored top section with image and crop name -->
+                                            <div class="colored-section bg-light-pink position-relative p-4">
+                                                <div class="position-absolute top-0 end-0 p-2">
+                                                    <i class="fas fa-ellipsis-h text-muted"></i>
+                                                </div>
+                                                <div class="text-center py-2">
+                                                    <img src="images/image.png" alt="Pomegranate" class="img-fluid" style="height: 100px; object-fit: contain;">
+                                                </div>
+                                                <div class="text-start mt-1">
+                                                    <h6 class="mb-0">Pomegranate</h6>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Bottom section with farmers and acres info -->
+                                            <div class="p-2 text-start">
+                                                <div class="fw-semibold small">4,702 farmers</div>
+                                                <div class="text-muted small">4,785 acres</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Mango Card -->
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="card crop-card h-100 border-0 shadow-sm">
+                                            <!-- Colored top section with image and crop name -->
+                                            <div class="colored-section bg-light-orange position-relative p-4">
+                                                <div class="position-absolute top-0 end-0 p-2">
+                                                    <i class="fas fa-ellipsis-h text-muted"></i>
+                                                </div>
+                                                <div class="text-center py-2">
+                                                    <img src="images/image-removebg-preview (50).png" alt="Mango" class="img-fluid" style="height: 100px; object-fit: contain;">
+                                                </div>
+                                                <div class="text-start mt-1">
+                                                    <h6 class="mb-0">Mango</h6>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Bottom section with farmers and acres info -->
+                                            <div class="p-2 text-start">
+                                                <div class="fw-semibold small">2,650 farmers</div>
+                                                <div class="text-muted small">2,198 acres</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Wheat Card -->
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="card crop-card h-100 border-0 shadow-sm">
+                                            <!-- Colored top section with image and crop name -->
+                                            <div class="colored-section bg-light-beige position-relative p-4">
+                                                <div class="position-absolute top-0 end-0 p-2">
+                                                    <i class="fas fa-ellipsis-h text-muted"></i>
+                                                </div>
+                                                <div class="text-center py-2">
+                                                    <img src="images/image-removebg-preview (52)@2x.png" alt="Wheat" class="img-fluid" style="height: 100px; object-fit: contain;">
+                                                </div>
+                                                <div class="text-start mt-1">
+                                                    <h6 class="mb-0">Wheat</h6>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Bottom section with farmers and acres info -->
+                                            <div class="p-2 text-start">
+                                                <div class="fw-semibold small">2,315 farmers</div>
+                                                <div class="text-muted small">3,585 acres</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                       <!-- Farmer Analytics Section -->
+                        <!-- Farmer Analytics Section -->
+                        <div class="card border-0 shadow-sm mb-4">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                    <h5 class="card-title mb-0">Farmer Analytics</h5>
+                                    <div class="d-flex align-items-center text-muted small">
+                                        <span class="me-1">Monthly</span>
+                                        <i class="fas fa-chevron-down"></i>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <!-- Left column: WhatsApp Analytics with vertical chart -->
+                                    <div class="col-md-4">
+                                        <div class="analytics-card border rounded p-3 h-100 position-relative">
+                                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                                <div>
+                                                    <div class="text-muted small mb-1">WhatsApp</div>
+                                                    <h3 class="fs-3 fw-normal mb-0">1,07,817</h3>
+                                                </div>
+                                                <div class="text-muted">
+                                                    <i class="fas fa-ellipsis-h"></i>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="analytics-trend mb-2">
+                                                <span class="text-success badge bg-success bg-opacity-10 px-2 py-1">
+                                                    <i class="fas fa-arrow-up me-1"></i>2.5%
+                                                </span>
+                                            </div>
+                                            
+                                            <!-- Semi-circle donut chart -->
+                                            <div class="d-flex justify-content-center mb-3">
+                                                <div class="position-relative" style="width: 180px; height: 180px;">
+                                                    <div class="donut-container">
+                                                        <div class="whatsapp-donut-bg"></div>
+                                                        <div class="whatsapp-donut-fill"></div>
+                                                        <div class="donut-hole"></div>
+                                                        <div class="chart-label left">70%</div>
+                                                        <div class="chart-label right">30%</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="d-flex justify-content-center gap-4">
+                                                <div class="d-flex align-items-center">
+                                                    <span class="legend-dot replied me-2"></span>
+                                                    <span class="small">Replied</span>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <span class="legend-dot read me-2"></span>
+                                                    <span class="small">Read</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Right column: Calls and Revenue analytics -->
+                                    <div class="col-md-8">
+                                        <!-- Calls Analytics - Top -->
+                                        <div class="analytics-card border rounded p-4 mb-4">
+                                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                                <div>
+                                                    <div class="text-muted small mb-1">Calls</div>
+                                                    <h3 class="fs-3 fw-normal mb-0">4,030</h3>
+                                                </div>
+                                                <div class="text-muted">
+                                                    <i class="fas fa-ellipsis-h"></i>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="analytics-trend mb-1">
+                                                <span class="text-success badge bg-success bg-opacity-10 px-2 py-1">
+                                                    <i class="fas fa-arrow-up me-1"></i>2.5%
+                                                </span>
+                                            </div>
+                                            
+                                            <div class="row align-items-center">
+                                                <div class="col-6 d-flex align-items-center">
+                                                    <span class="legend-dot picked me-2"></span>
+                                                    <span class="small">Picked up</span>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="position-relative" style="height: 80px;">
+                                                        <div class="position-absolute end-0 top-40 translate-middle-y">
+                                                            <div class="donut-container">
+                                                                <div class="calls-donut-bg"></div>
+                                                                <div class="donut-hole"></div>
+                                                                <div class="chart-label center">64%</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Revenue Analytics - Bottom -->
+                                        <div class="analytics-card border rounded p-3">
+                                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                                <div>
+                                                    <div class="text-muted small mb-1">Revenue</div>
+                                                    <h3 class="fs-3 fw-normal mb-0">₹9,89,400</h3>
+                                                </div>
+                                                <div class="text-muted">
+                                                    <i class="fas fa-ellipsis-h"></i>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="analytics-trend mb-1">
+                                                <span class="text-danger badge bg-danger bg-opacity-10 px-2 py-1">
+                                                    <i class="fas fa-arrow-down me-1"></i>7.9%
+                                                </span>
+                                            </div>
+                                            
+                                            <div class="row align-items-center">
+                                                <div class="col-6">
+                                                    <div class="d-flex flex-column gap-2">
+                                                        <div class="d-flex align-items-center">
+                                                            <span class="legend-dot inputs me-2"></span>
+                                                            <span class="small">Inputs</span>
+                                                        </div>
+                                                        <div class="d-flex align-items-center">
+                                                            <span class="legend-dot forward me-2"></span>
+                                                            <span class="small">Forward Link</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="position-relative" style="height: 80px;">
+                                                        <div class="position-absolute end-0 top-40 translate-middle-y"> 
+                                                            <div class="donut-container">
+                                                                <div class="revenue-donut-bg"></div>
+                                                                <div class="revenue-donut-fill"></div>
+                                                                <div class="donut-hole"></div>
+                                                                <div class="chart-label center">30%</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Column with Tasks and News Feed -->
+                    <div class="col-lg-4">
+                        <!-- Tasks Section -->
+                        <div class="card mb-4 border-0 shadow-sm">
+                            <div class="card-body p-3">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h5 class="card-title mb-0 fw-semibold">Tasks</h5>
+                                    <div class="d-flex align-items-center">
+                                        <div class="task-filter me-2">
+                                            <button class="task-btn active">Today</button>
+                                            <button class="task-btn">This Week</button>
+                                        </div>
+                                        <div class="task-controls">
+                                            <button class="btn-icon">
+                                                <i class="fas fa-calendar-alt"></i>
+                                            </button>
+                                            <button class="btn-icon ms-2">
+                                                <i class="fas fa-chevron-right"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="task-divider">
+                                
+                                <div class="task-list">
+                                    <!-- Task 1 -->
+                                    <div class="task-item">
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <div>
+                                                <h6 class="fw-semibold mb-1">Deliver Inputs</h6>
+                                                <p class="text-muted small mb-1">Send fertilisers to ardhapur</p>
+                                                <span class="text-muted small">11:00 AM</span>
+                                            </div>
+                                            <div class="priority-dot high"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <hr class="task-divider">
+                                    
+                                    <!-- Task 2 -->
+                                    <div class="task-item">
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <div>
+                                                <h6 class="fw-semibold mb-1">Approve WhatsApp campaign</h6>
+                                                <p class="text-muted small mb-1">Fruit care practices for Nanded farmers</p>
+                                                <span class="text-muted small">11:00 AM</span>
+                                            </div>
+                                            <div class="priority-dot high"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <hr class="task-divider">
+                                    
+                                    <!-- Task 3 -->
+                                    <div class="task-item">
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <div>
+                                                <h6 class="fw-semibold mb-1">Call Farmers</h6>
+                                                <p class="text-muted small mb-1">7 farmers requiring assistance</p>
+                                                <span class="text-muted small">14:00 PM</span>
+                                            </div>
+                                            <div class="priority-dot low">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- News Feed Section -->
+                        <!-- News Feed Section -->
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body p-3">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h5 class="card-title mb-0 fw-semibold">News Feed</h5>
+                                    <div class="d-flex align-items-center">
+                                        <span class="me-2">Recent</span>
+                                        <i class="fas fa-chevron-down"></i>
+                                    </div>
+                                </div>
+                                
+                                <div class="news-list">
+                                    <!-- News Item 1 - Featured with full width image -->
+                                    <div class="news-item mb-3">
+                                        <div class="mb-3">
+                                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsFwO7RcZmukH-gXKCBB606Q14-wH3zKt17g&s" alt="Fruits" class="img-fluid w-100 rounded">
+                                        </div>
+                                        <div class="text-muted small mb-1">Report</div>
+                                        <h6 class="fw-semibold mb-1">April 2025 Outlook Report: Fruits</h6>
+                                        <div class="text-muted small">Bojan Mijatovic · Apr 11, 2025</div>
+                                        <hr class="my-3">
+                                    </div>
+                                    
+                                    <!-- News Item 2 - Side image -->
+                                    <div class="news-item mb-1">
+                                        <div class="d-flex">
+                                            <div class="flex-shrink-0 me-3">
+                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzMUq_B6AID8hKjXKNOXywczeyXrvIyWTLuQ&s" alt="Drone" class="rounded" width="80" height="80">
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <div class="d-flex justify-content-between">
+                                                    <div class="text-muted small">14th April 2025</div>
+                                                    <div class="text-muted small">12:00 PM</div>
+                                                </div>
+                                                <h6 class="mb-0">
+                                                    <span class="fw-semibold">Shifting Gears:</span> Nanded farmers transition to drone spraying due to labour issues
+                                                </h6>    
+                                            </div>                                        
+                                        </div>
+                                        <hr class="my-3">
+                                    </div>
+                                    
+                                    <!-- News Item 3 - Side image -->
+                                    <div class="news-item">
+                                        <div class="d-flex">
+                                            <div class="flex-shrink-0 me-3">
+                                                <img src="data:image/jpeg;base64,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" alt="Banana Farm" class="rounded" width="80" height="80">
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <div class="d-flex justify-content-between">
+                                                    <div class="text-muted small">11th April 2025</div>
+                                                    <div class="text-muted small">9:45 AM</div>
+                                                </div>
+                                                <h6 class="mb-0">
+                                                <span class="fw-semibold">New Variety:</span> Brazil had found success in Banana farming using the disease resistance cultivar BRS Princesa
+                                                 </h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget">
+        <button class="btn btn-success rounded-circle shadow chat-button">
+            <i class="fas fa-comment"></i>
+        </button>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>

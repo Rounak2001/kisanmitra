@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agricultural Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-items">
+                <div class="sidebar-item active">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-comment-dots"></i>
+                    <span>Chatbot</span>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Map</span>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-user-friends"></i>
+                    <span>Farmer</span>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-seedling"></i>
+                    <span>Crops</span>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-tasks"></i>
+                    <span>Tasks</span>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>Whatsapp</span>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-phone"></i>
+                    <span>IVR Calls</span>
+                </div>
+            </div>
+            <div class="sidebar-footer">
+                <div class="sidebar-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header bg-white shadow-sm">
+                <div class="container-fluid py-3">
+                    <div class="row align-items-center">
+                        <div class="col-md-3">
+                            <h1 class="fs-4 fw-semibold mb-0">Happy Monday, Gourav</h1>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <input type="text" class="form-control rounded-pill bg-light" placeholder="How can I help you today?">
+                                <button class="btn position-absolute end-0 top-0 bottom-0 bg-transparent border-0" type="button">
+                                    <i class="fas fa-search text-muted"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="d-flex justify-content-end align-items-center">
+                                <div class="me-4">
+                                    <i class="fas fa-bell fs-5 text-muted"></i>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <img src="/api/placeholder/40/40" alt="User Profile" class="rounded-circle me-2" width="40" height="40">
+                                    <div class="d-flex flex-column">
+                                        <span class="fw-semibold small">Gourav</span>
+                                        <span class="text-muted small">User</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down ms-2 small text-muted"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content p-4">
+                <div class="row">
+                    <!-- Stats Cards (Left) and Tasks (Right) -->
+                    <div class="col-lg-8">
+                        <!-- Stats Cards -->
+                        <div class="row mb-4">
+                            <div class="col-md-4 mb-3 mb-md-0 narrow-card">
+                                <div class="card stat-card h-100 ">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <h5 class="card-title mb-0">Total Farmers</h5>
+                                            <div class="trend-icon up rounded-circle d-flex align-items-center justify-content-center">
+                                                <i class="fas fa-arrow-trend-up"></i>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-baseline">
+                                            <h2 class="display-6 fw-bold mb-0">42,462</h2>
+                                            <span class="ms-4 trend up">+2.5%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3 mb-md-0 narrow-card">
+                                <div class="card stat-card h-100">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <h5 class="card-title mb-0">Total Acres</h5>
+                                            <div class="trend-icon up rounded-circle d-flex align-items-center justify-content-center">
+                                                <i class="fas fa-arrow-trend-up"></i>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-baseline">
+                                            <h2 class="display-6 fw-bold mb-0">93,891</h2>
+                                            <span class="ms-2 trend up">+4.1%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 narrow-card">
+                                <div class="card stat-card h-100">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <h5 class="card-title mb-0">Total Villages</h5>
+                                            <div class="trend-icon up rounded-circle d-flex align-items-center justify-content-center">
+                                                <i class="fas fa-arrow-trend-up"></i>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-baseline">
+                                            <h2 class="display-6 fw-bold mb-0">6,738</h2>
+                                            <span class="ms-2 trend up">+1.3%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tasks Section (Right side at top level) -->
+                    <div class="col-lg-4">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                    <h5 class="card-title mb-0">Tasks</h5>
+                                    <div class="d-flex align-items-center">
+                                        <ul class="nav nav-pills task-tabs me-2">
+                                            <li class="nav-item">
+                                                <button class="nav-link active task-tab py-1 px-3" data-bs-toggle="pill">Today</button>
+                                            </li>
+                                            <li class="nav-item">
+                                                <button class="nav-link task-tab py-1 px-3" data-bs-toggle="pill">This Week</button>
+                                            </li>
+                                        </ul>
+                                        <div class="d-flex">
+                                            <button class="btn btn-sm btn-light me-1">
+                                                <i class="fas fa-calendar"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-light">
+                                                <i class="fas fa-chevron-right"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="task-list">
+                                    <div class="card bg-light mb-3">
+                                        <div class="card-body d-flex justify-content-between py-2">
+                                            <div>
+                                                <h6 class="mb-1">Deliver Inputs</h6>
+                                                <p class="text-muted small mb-1">Send fertilisers to ardhapur</p>
+                                                <span class="text-muted small">11:00 AM</span>
+                                            </div>
+                                            <div class="d-flex align-items-center">
+                                                <span class="task-priority high"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card bg-light mb-3">
+                                        <div class="card-body d-flex justify-content-between py-2">
+                                            <div>
+                                                <h6 class="mb-1">Approve WhatsApp campaign</h6>
+                                                <p class="text-muted small mb-1">Fruit care practices for Nanded farmers</p>
+                                                <span class="text-muted small">11:00 AM</span>
+                                            </div>
+                                            <div class="d-flex align-items-center">
+                                                <span class="task-priority high"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card bg-light">
+                                        <div class="card-body d-flex justify-content-between py-2">
+                                            <div>
+                                                <h6 class="mb-1">Call Farmers</h6>
+                                                <p class="text-muted small mb-1">7 farmers requiring assistance</p>
+                                                <span class="text-muted small">14:00 PM</span>
+                                            </div>
+                                            <div class="d-flex align-items-center">
+                                                <span class="task-priority medium"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Two Column Layout -->
+                <div class="row">
+                    <!-- Left Column -->
+                    <div class="col-lg-8 mb-4 mb-lg-0">
+                        <!-- Crops Section -->
+                        <div class="card mb-4 border-0 shadow-sm">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h5 class="card-title mb-0">Crops Grown</h5>
+                                    <a href="#" class="text-decoration-none text-success d-flex align-items-center">
+                                        View All <i class="fas fa-chevron-right ms-1 small"></i>
+                                    </a>
+                                </div>
+                                <div class="row g-3">
+                                    <!-- Banana Card -->
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="card crop-card h-100 border-0">
+                                            <!-- Colored top section with image and crop name -->
+                                            <div class="colored-section bg-light-yellow position-relative p-4 shadow-bottom">
+                                                <div class="position-absolute top-0 end-0 p-2">
+                                                    <i class="fas fa-ellipsis-h text-muted"></i>
+                                                </div>
+                                                <div class="text-center py-2">
+                                                    <img src="https://nutritionsource.hsph.harvard.edu/wp-content/uploads/2018/08/bananas-1354785_1920.jpg" alt="Banana" class="img-fluid" style="height: 100px; object-fit: contain;">
+                                                </div>
+                                                <div class="text-start mt-1">
+                                                    <h6 class="mb-0">Banana</h6>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Bottom section with farmers and acres info -->
+                                            <div class="p-2 text-start">
+                                                <div class="fw-semibold small">10,836 farmers</div>
+                                                <div class="text-muted small">19,502 acres</div>
+                                            </div>
+                                        </div>
+                                    </div>                         
+                                    <!-- Pomegranate Card -->
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="card crop-card h-100 border-0 shadow-sm">
+                                            <!-- Colored top section with image and crop name -->
+                                            <div class="colored-section bg-light-pink position-relative p-4">
+                                                <div class="position-absolute top-0 end-0 p-2">
+                                                    <i class="fas fa-ellipsis-h text-muted"></i>
+                                                </div>
+                                                <div class="text-center py-2">
+                                                    <img src="https://m.media-amazon.com/images/I/611a1wD9ZGL.jpg" alt="Pomegranate" class="img-fluid" style="height: 100px; object-fit: contain;">
+                                                </div>
+                                                <div class="text-start mt-1">
+                                                    <h6 class="mb-0">Pomegranate</h6>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Bottom section with farmers and acres info -->
+                                            <div class="p-2 text-start">
+                                                <div class="fw-semibold small">4,702 farmers</div>
+                                                <div class="text-muted small">4,785 acres</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Mango Card -->
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="card crop-card h-100 border-0 shadow-sm">
+                                            <!-- Colored top section with image and crop name -->
+                                            <div class="colored-section bg-light-orange position-relative p-4">
+                                                <div class="position-absolute top-0 end-0 p-2">
+                                                    <i class="fas fa-ellipsis-h text-muted"></i>
+                                                </div>
+                                                <div class="text-center py-2">
+                                                    <img src="https://mangoeshyderabad.com/wp-content/uploads/2022/03/kesar-hyd-1.jpg" alt="Mango" class="img-fluid" style="height: 100px; object-fit: contain;">
+                                                </div>
+                                                <div class="text-start mt-1">
+                                                    <h6 class="mb-0">Mango</h6>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Bottom section with farmers and acres info -->
+                                            <div class="p-2 text-start">
+                                                <div class="fw-semibold small">2,650 farmers</div>
+                                                <div class="text-muted small">2,198 acres</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Wheat Card -->
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="card crop-card h-100 border-0 shadow-sm">
+                                            <!-- Colored top section with image and crop name -->
+                                            <div class="colored-section bg-light-beige position-relative p-4">
+                                                <div class="position-absolute top-0 end-0 p-2">
+                                                    <i class="fas fa-ellipsis-h text-muted"></i>
+                                                </div>
+                                                <div class="text-center py-2">
+                                                    <img src="https://www.peptechbio.com/wp-content/uploads/2023/03/Wheat_photo-cred-Adobe-stock_E-2.jpg" alt="Wheat" class="img-fluid" style="height: 100px; object-fit: contain;">
+                                                </div>
+                                                <div class="text-start mt-1">
+                                                    <h6 class="mb-0">Wheat</h6>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Bottom section with farmers and acres info -->
+                                            <div class="p-2 text-start">
+                                                <div class="fw-semibold small">2,315 farmers</div>
+                                                <div class="text-muted small">3,585 acres</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Farmer Analytics Section -->
+                        <div class="card shadow-sm border-0 mb-4 analytics-section">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                    <h5 class="fw-medium mb-0">Farmer Analytics</h5>
+                                    <div class="d-flex align-items-center text-muted small">
+                                        <span class="me-1">Monthly</span>
+                                        <i class="fas fa-chevron-down"></i>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <!-- WhatsApp Analytics -->
+                                    <div class="col-md-4 mb-3">
+                                        <div class="analytics-card border">
+                                            <div class="analytics-header">
+                                                <div>
+                                                    <div class="text-muted small mb-1">WhatsApp</div>
+                                                    <h4 class="fw-semibold mb-0">1,07,817</h4>
+                                                </div>
+                                                <div class="text-muted">
+                                                    <i class="fas fa-ellipsis-h"></i>
+                                                </div>
+                                            </div>
+                                            <div class="analytics-trend mb-3">
+                                                <span class="text-success small">
+                                                    <i class="fas fa-arrow-up"></i> 2.5%
+                                                </span>
+                                            </div>
+                                            <div class="analytics-chart">
+                                                <!-- Semi-circle chart for WhatsApp -->
+                                                <div class="chart-container vertical-chart">
+                                                    <!-- This would be replaced by actual Chart.js -->
+                                                    <div class="donut-chart green-chart">
+                                                        <div class="chart-label">70%</div>
+                                                        <div class="chart-label-alt">30%</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="analytics-legend">
+                                                <div class="legend-item">
+                                                    <span class="legend-dot replied"></span>
+                                                    <span>Replied</span>
+                                                </div>
+                                                <div class="legend-item">
+                                                    <span class="legend-dot read"></span>
+                                                    <span>Read</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Right Column -->
+                                    <div class="col-md-8">
+                                        <!-- Calls Analytics -->
+                                        <div class="analytics-card border mb-3">
+                                            <div class="analytics-header">
+                                                <div>
+                                                    <div class="text-muted small mb-1">Calls</div>
+                                                    <h4 class="fw-semibold mb-0">4,030</h4>
+                                                </div>
+                                                <div class="text-muted">
+                                                    <i class="fas fa-ellipsis-h"></i>
+                                                </div>
+                                            </div>
+                                            <div class="analytics-trend mb-3">
+                                                <span class="text-success small">
+                                                    <i class="fas fa-arrow-up"></i> 2.5%
+                                                </span>
+                                            </div>
+                                            <div class="row align-items-center">
+                                                <div class="col-6">
+                                                    <div class="analytics-legend horizontal-legend">
+                                                        <div class="legend-item">
+                                                            <span class="legend-dot picked"></span>
+                                                            <span>Picked up</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="analytics-chart">
+                                                        <!-- Circle donut chart for Calls -->
+                                                        <div class="chart-container horizontal-chart">
+                                                            <!-- This would be replaced by actual Chart.js -->
+                                                            <div class="donut-chart yellow-chart">
+                                                                <div class="chart-label">64%</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Revenue Analytics -->
+                                        <div class="analytics-card border">
+                                            <div class="analytics-header">
+                                                <div>
+                                                    <div class="text-muted small mb-1">Revenue</div>
+                                                    <h4 class="fw-semibold mb-0">₹9,89,400</h4>
+                                                </div>
+                                                <div class="text-muted">
+                                                    <i class="fas fa-ellipsis-h"></i>
+                                                </div>
+                                            </div>
+                                            <div class="analytics-trend mb-3">
+                                                <span class="text-danger small">
+                                                    <i class="fas fa-arrow-down"></i> 7.9%
+                                                </span>
+                                            </div>
+                                            <div class="row align-items-center">
+                                                <div class="col-6">
+                                                    <div class="analytics-legend horizontal-legend">
+                                                        <div class="legend-item mb-2">
+                                                            <span class="legend-dot inputs"></span>
+                                                            <span>Inputs</span>
+                                                        </div>
+                                                        <div class="legend-item">
+                                                            <span class="legend-dot forward"></span>
+                                                            <span>Forward Link</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="analytics-chart">
+                                                        <!-- Circle donut chart for Revenue -->
+                                                        <div class="chart-container horizontal-chart">
+                                                            <!-- This would be replaced by actual Chart.js -->
+                                                            <div class="donut-chart blue-chart">
+                                                                <div class="chart-label">30%</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="col-lg-4">
+
+                        
+
+                        <!-- News Feed Section -->
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                    <h5 class="card-title mb-0">News Feed</h5>
+                                    <div class="dropdown">
+                                        <button class="btn btn-sm btn-light dropdown-toggle" type="button" id="newsFilterDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Recent
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="newsFilterDropdown">
+                                            <li><a class="dropdown-item" href="#">Recent</a></li>
+                                            <li><a class="dropdown-item" href="#">Popular</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="news-list">
+                                    <div class="d-flex gap-3 mb-3 pb-3 border-bottom">
+                                        <div class="flex-shrink-0">
+                                            <img src="/api/placeholder/80/80" alt="Fruits" class="rounded" width="80" height="80">
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <div class="text-muted small mb-1">Report</div>
+                                            <h6 class="mb-1">April 2025 Outlook Report: Fruits</h6>
+                                            <div class="d-flex text-muted small">
+                                                <span>Bojan Mijatovic</span>
+                                                <span class="mx-1">•</span>
+                                                <span>Apr 11, 2025</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex gap-3 mb-3 pb-3 border-bottom">
+                                        <div class="flex-shrink-0">
+                                            <img src="/api/placeholder/80/80" alt="Drone" class="rounded" width="80" height="80">
+                                        </div>
+                                        <div class="flex-grow-1 position-relative">
+                                            <div class="text-muted small mb-1">14th April 2025</div>
+                                            <h6 class="mb-0">Shifting Gears: Nanded farmers transition to drone spraying due to labour issues</h6>
+                                            <div class="position-absolute top-0 end-0 text-muted small">12:00 PM</div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex gap-3">
+                                        <div class="flex-shrink-0">
+                                            <img src="/api/placeholder/80/80" alt="Banana" class="rounded" width="80" height="80">
+                                        </div>
+                                        <div class="flex-grow-1 position-relative">
+                                            <div class="text-muted small mb-1">9th April 2025</div>
+                                            <h6 class="mb-0">New Variety: Brazil had found success in Banana farming using the disease resistance cultivar BRS Princesa</h6>
+                                            <div class="position-absolute top-0 end-0 text-muted small">9:45 AM</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget">
+        <button class="btn btn-success rounded-circle shadow chat-button">
+            <i class="fas fa-comment"></i>
+        </button>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>

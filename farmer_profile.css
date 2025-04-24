@@ -1,0 +1,1029 @@
+/* Base Styles */
+:root {
+    --primary-color: #3e6b4e;
+    --secondary-color: #d8e8c2;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+}
+
+body {
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Dashboard Container */
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 76px;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 0;
+    position: fixed;
+    height: 100vh;
+    z-index: 10;
+}
+
+.sidebar-items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebar-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 12px;
+}
+
+.sidebar-item i {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.sidebar-item.active {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-footer {
+    margin-top: auto;
+}
+
+/* Main Content Styles */
+.main-content {
+    flex: 1;
+    margin-left: 76px;
+    overflow-x: hidden;
+}
+
+/* Header Styles */
+.header {
+    background-color: white;
+    border-bottom: 1px solid #eee;
+}
+
+/* Farmer Profile Specific Styles */
+.text-success {
+    color: var(--primary-color) !important;
+}
+
+.btn-success {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+.btn-outline-success {
+    color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+.btn-outline-success:hover {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+}
+
+/* Land Distribution Bar */
+.land-distribution {
+    height: 24px;
+    overflow: hidden;
+    border-radius: 12px;
+    margin-bottom: 5px;
+    background-color: #f8f9fa;
+}
+
+.land-bar {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+    padding: 0 10px;
+}
+
+.land-bar.banana {
+    background-color: #94d82d;
+}
+
+.land-bar.cotton {
+    background-color: #4dabf7;
+}
+/* Farm Details Card Styling */
+.farm-details-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.card-title.text-success {
+    color: #3e6b4e !important;
+    font-weight: 500;
+}
+
+/* Acre Distribution Bar */
+.acre-distribution-bar {
+    display: flex;
+    height: 28px;
+    border-radius: 14px;
+    overflow: hidden;
+    background-color: #f8f9fa;
+}
+
+.acre-bar {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    padding: 0 10px;
+}
+
+.acre-bar.banana-bar {
+    background-color: #d8e8c2;
+    width: 67%;
+    font-weight: 500;
+}
+
+.acre-bar.cotton-bar {
+    background-color: #3b7549;
+    width: 33%;
+    color: white;
+    font-weight: 500;
+}
+
+/* Map Styling */
+.farm-map-container {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.farm-map-container img {
+    object-fit: cover;
+    height: 180px;
+}
+
+/* Weather Section */
+.weather-container {
+    color: #333;
+}
+
+.weather-icon {
+    color: #3e6b4e;
+    font-size: 24px;
+}
+
+.weather-forecast {
+    flex: 1;
+}
+
+hr {
+    border-color: #e9ecef;
+    margin: 15px 0;
+    opacity: 0.5;
+}
+
+.fa-circle {
+    font-size: 16px;
+}
+
+/* Sentiment Analysis Card */
+.sentiment-icon .fa-leaf {
+    color: #4ade80;
+    font-size: 20px;
+}
+
+/* Progress Bars */
+.progress-container {
+    height: 16px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    border-radius: 8px;
+}
+
+.progress-bar.confidence-bar {
+    background-color: #d8e8c2;
+}
+
+.progress-bar.stress-bar {
+    background-color: #4dabf7;
+}
+
+.progress-bar.adoption-bar {
+    background-color: #12b886;
+}
+
+/* Word Cloud */
+.word-cloud-container {
+    margin-top: 10px;
+}
+
+.tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    position: relative;
+    justify-content: center;
+    text-align: center;
+}
+
+.tag-cloud span {
+    display: inline-block;
+    white-space: nowrap;
+    margin-bottom: 5px;
+}
+
+/* Individual tag styles with varying font sizes and colors */
+.tag-desk-cows {
+    color: #12b886;
+    font-size: 12px;
+    font-weight: 500;
+    transform: rotate(-10deg);
+    margin-right: 15px;
+}
+
+.tag-cash-flow {
+    color: #4dabf7;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.tag-bunchy-top {
+    color: #e8b339;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.tag-rise-n-shine {
+    color: #3e6b4e;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.tag-wsf {
+    color: #f08c00;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.tag-bunch {
+    color: #adb5bd;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.tag-mahadhan {
+    color: #7048e8;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.tag-banana-g9 {
+    color: #12b886;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.tag-jai-shri-raam {
+    color: #f03e3e;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.tag-bjp {
+    color: #f59f00;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.tag-drip-irrigation {
+    color: #1098ad;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.tag-no-labour {
+    color: #adb5bd;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.tag-credit {
+    color: #f76707;
+    font-size: 14px;
+    font-weight: 500;
+    transform: rotate(10deg);
+}
+/* Weather Icons */
+.weather-icon-lg {
+    font-size: 24px;
+    color: var(--primary-color);
+}
+
+.weather-forecast {
+    text-align: center;
+}
+
+/* Sentiment Analysis */
+.sentiment-icon {
+    font-size: 24px;
+}
+
+.progress {
+    background-color: #e9ecef;
+}
+
+.progress-bar.bg-success {
+    background-color: #94d82d !important;
+}
+
+.progress-bar.bg-info {
+    background-color: #4dabf7 !important;
+}
+
+.progress-bar.bg-primary {
+    background-color: #22b8cf !important;
+}
+
+/* Tag Cloud */
+.tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    background-color: #f8f9fa;
+    color: var(--primary-color);
+}
+
+.tag.cash-flow { background-color: #e3fafc; color: #0b7285; }
+.tag.bunchy-top { background-color: #fff3bf; color: #e67700; }
+.tag.wsf { background-color: #d3f9d8; color: #2b8a3e; }
+.tag.rise-n-shine { background-color: #fff9db; color: #f08c00; }
+.tag.bunch { background-color: #e3fafc; color: #0b7285; }
+.tag.mahadhan { background-color: #f8f0fc; color: #ae3ec9; }
+.tag.banana-g9 { background-color: #d3f9d8; color: #2b8a3e; }
+.tag.jai-shri-raam { background-color: #ffdeeb; color: #c2255c; }
+.tag.bjp { background-color: #fff9db; color: #f08c00; }
+.tag.drip-irrigation { background-color: #e3fafc; color: #0b7285; }
+.tag.no-labour { background-color: #e3fafc; color: #0b7285; }
+
+/* Analytics Small Cards */
+.analytics-small-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+}
+
+/* Timeline Styles */
+
+
+
+/* Farmer Contact and AI Agronomist Styles */
+
+/* Card Styles */
+.card {
+    border-radius: 12px;
+}
+
+.card.border-0 {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.text-success {
+    color: #3e6b4e !important;
+}
+
+.btn-success {
+    background-color: #3e6b4e !important;
+    border-color: #3e6b4e !important;
+}
+
+.btn-outline-success {
+    color: #3e6b4e !important;
+    border-color: #3e6b4e !important;
+}
+
+.btn-outline-success:hover {
+    background-color: #3e6b4e !important;
+    color: white !important;
+}
+
+/* Contact Buttons */
+.contact-btn {
+    width: 56px;
+    height: 56px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.contact-btn i {
+    font-size: 20px;
+}
+
+/* Analytics Cards */
+.analytics-card {
+    border-radius: 10px;
+    box-shadow: none;
+    border: 1px solid #e9ecef !important;
+}
+
+.analytics-card .bg-light {
+    background-color: #f8f9fa !important;
+}
+
+.analytics-card .rounded-circle {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.analytics-card .rounded-circle i {
+    font-size: 14px;
+}
+
+/* Timeline Styles */
+.timeline-container {
+    position: relative;
+    padding-left: 40px; /* Increased padding for proper alignment */
+    margin-bottom: 30px;
+    width: 100%;
+    max-width: 600px;
+  }
+  
+
+  
+  .timeline-item {
+    position: left;
+    margin-bottom: 20px;
+    padding-right: 15px;
+  }
+  
+  .timeline-dot {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #3e6b4e;
+    top: 20px;
+    left: -26px; /* Dots aligned with the line */
+    z-index: 2;
+  }
+  
+  .timeline-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    width: 100%;
+    overflow: hidden;
+    margin-left: 0; /* Ensure cards are properly aligned */
+  }
+  
+  .header-section {
+    background-color: #f9f9f9;
+    padding: 10px 15px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .timeline-label {
+    color: #666;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .timeline-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 15px 15px 5px 15px;
+  }
+  
+  .timeline-date {
+    color: #888;
+    font-size: 14px;
+    margin: 0 15px 15px 15px;
+  }
+  
+  .timeline-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px 15px 15px;
+  }
+  
+  .timeline-meta {
+    display: flex;
+    align-items: center;
+  }
+  
+  .meta-text {
+    color: #3e6b4e;
+    font-size: 14px;
+  }
+  
+  .action-btn {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid #e0e0e0;
+    background-color: #fff;
+    color: #555;
+  }
+  
+  .status-badge {
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background-color: rgba(62, 107, 79, 0.1);
+    color: #3e6b4e;
+  }
+/* Action Buttons */
+.action-btn {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-btn i {
+    font-size: 12px;
+}
+
+/* AI Agronomist Section */
+.ai-agronomist-container {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #fff;
+    overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .ai-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .ai-title {
+    color: #2D6A4F;
+    font-weight: 500;
+    margin: 0;
+    font-size: 16px;
+  }
+  
+  .more-options-btn {
+    background: none;
+    border: none;
+    color: #888;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  .ai-content {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .question-text {
+    color: #444;
+    font-weight: 500;
+    margin-bottom: 25px;
+    font-size: 15px;
+  }
+  
+  .button-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    justify-content: center;
+  }
+  
+  .option-btn {
+    background-color: #fff;
+    border: 1px solid #2D6A4F;
+    color: #2D6A4F;
+    border-radius: 4px;
+    padding: 6px 12px;
+    font-size: 13px;
+    white-space: nowrap;
+    cursor: pointer;
+    flex: 1;
+    transition: background-color 0.2s;
+  }
+  
+  .option-btn:hover {
+    background-color: rgba(45, 106, 79, 0.1);
+  }
+  
+  .chat-input-container {
+    display: flex;
+    align-items: center;
+    margin: 15px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    padding: 5px;
+    overflow: hidden;
+  }
+  
+  .chat-input {
+    flex: 1;
+    border: none;
+    padding: 8px 15px;
+    outline: none;
+    font-size: 14px;
+  }
+  
+  .input-buttons {
+    display: flex;
+    align-items: center;
+  }
+  
+  .input-btn {
+    background: none;
+    border: none;
+    color: #888;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  .send-btn {
+    background-color: #2D6A4F;
+    border: none;
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+    cursor: pointer;
+  }
+/* Badge Styles */
+.badge {
+    font-weight: 500;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .timeline-container {
+        padding-left: 0;
+    }
+    
+    .analytics-card .card-body {
+        padding: 10px;
+    }
+    
+    .row.g-3 {
+        --bs-gutter-x: 0.75rem;
+    }
+}
+
+/* Calendar Styles */
+.banana-calendar-container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .calendar-header {
+    border-bottom: 1px solid #eee;
+  }
+  
+  .active-day {
+    background-color: #2D6A4F;
+    color: white;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    margin: 0 auto;
+  }
+  
+  .growth-stage {
+    max-height: 80px;
+    object-fit: contain;
+  }
+  
+  .task-item {
+    background-color: #f9f9f9;
+  }
+  
+  .product-card {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 8px;
+    position: relative;
+    height: 100%;
+  }
+  
+  .product-card.active {
+    border-color: #2D6A4F;
+  }
+  
+  .product-badge {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background-color: #ff9800;
+    color: white;
+    font-size: 10px;
+    padding: 2px 5px;
+    border-radius: 4px;
+  }
+  
+  .product-badge.limited-deal {
+    background-color: #dc3545;
+  }
+  
+  .product-badge.off-deal {
+    background-color: #17a2b8;
+  }
+  
+  .product-img img {
+    max-height: 80px;
+    object-fit: contain;
+  }
+  
+  .size-selector {
+    width: auto;
+    min-width: 100px;
+    font-size: 12px;
+  }
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .sidebar {
+        width: 60px;
+    }
+    
+    .main-content {
+        margin-left: 60px;
+    }
+    
+    .sidebar-item i {
+        font-size: 18px;
+    }
+    
+    .sidebar-item span {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 50px;
+    }
+    
+    .main-content {
+        margin-left: 50px;
+    }
+    
+    .sidebar-item span {
+        display: none;
+    }
+    
+    .sidebar-item {
+        padding: 10px 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .sidebar {
+        width: 0;
+        transform: translateX(-100%);
+    }
+    
+    .main-content {
+        margin-left: 0;
+    }
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+}
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+}
+.card {
+    border-radius: 16px;
+    overflow: hidden;
+    border: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+.farmer-name {
+    color: #2D6A4F;
+    font-weight: 500;
+}
+.contact-btn {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #f8f9fa;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+.contact-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+.stat-card {
+    background: linear-gradient(to top, #D9ED92, #B5E48C);
+    border-radius: 16px;
+    padding: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: none;
+    height: 90px;
+}
+.stat-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.7);
+    margin-right: 10px;
+}
+.stat-value {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 0;
+    line-height: 1;
+}
+.stat-label {
+    font-size: 12px;
+    color: #495057;
+}
+.timeline-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 0;
+  }
+  
+  .timeline-line {
+    position: absolute;
+    width: 2px;
+    background-color: #3e6b4e; /* Green timeline line */
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+    width: 45%;
+  }
+  
+  .timeline-item.left {
+    margin-left: 0;
+    margin-right: auto;
+  }
+  
+  .timeline-item.right {
+    margin-left: auto;
+    margin-right: 0;
+  }
+  
+  .timeline-dot {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #3e6b4e;
+    top: 20px;
+    z-index: 2;
+  }
+  
+  .timeline-item.left .timeline-dot {
+    right: -6.5%;
+  }
+  
+  .timeline-item.right .timeline-dot {
+    left: -6.5%;
+  }
+  
+  .timeline-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .timeline-label {
+    color: #6c757d;
+    font-size: 12px;
+  }
+  
+  .timeline-title {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+  
+  .timeline-date {
+    color: #6c757d;
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+  
+  .timeline-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .timeline-meta {
+    color: #198754;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .action-btn {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid #e0e0e0;
+    background-color: #fff;
+    color: #555;
+  }
+  
+  .status-badge {
+    font-size: 12px;
+    padding: 3px 10px;
+    border-radius: 16px;
+    background-color: rgba(25, 135, 84, 0.1);
+    color: #198754;
+  }
